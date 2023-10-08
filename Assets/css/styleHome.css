@@ -1,0 +1,153 @@
+*{
+  margin: 0%;
+  padding: 0%;
+}
+
+body{
+  background-color: #f9f9f9;
+  animation: fadeIn;
+  animation-duration: 1s;
+}
+
+header{
+  min-width: 100%;
+}
+
+#car{
+  box-shadow:0px 0px 20px #142b4e;
+}
+
+.titleCar{
+  text-align: left;
+  font-size: 45px;
+  animation: fadeInLeft;
+  animation-duration: 1s;
+}
+
+.lista{
+  text-align: left;
+  font-size: 40px;
+  animation: fadeInLeft;
+  animation-duration: 1s;
+}
+
+#about{
+  width: 95%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+.boxSystem{
+  width: 100%;
+  margin: auto;
+}
+
+.imgCap{
+  animation:fadeIn;
+  animation-duration: 2s;
+}
+
+.title{
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  color: black;
+  font-weight: lighter;
+}
+
+#note{
+  width: 800px;
+}
+
+.card{
+  width: 350px;
+  height: 280px;
+  border-radius: 10px;
+  margin-top: 20px;
+  background-color: black;
+}
+
+.card:hover{
+  box-shadow: 0px 0px 10px black;
+  
+}
+
+.mes{
+  margin-top: 5px;
+  text-align: center;
+  color: white;
+  font-size: 30px;
+  font-weight: bolder;
+  
+}
+
+.valor{
+  text-align: center;
+  color: white;
+  font-size: 55px;
+  font-weight: bolder;
+  font-family: serif;
+}
+
+.desconto{
+  text-align: center;
+  color: white;
+  font-size: 20px;
+}
+
+.btnCard{
+  width: 280px;
+  height: 50px;
+  border: none;
+  border-radius: 10px;
+  margin: auto;
+  background-color: white;
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.btnCard:hover{
+  background-color: lightgray;
+  box-shadow: 0px 0px 10px #010626 ;
+  transform: scale(1.05);
+  transition: .6s;
+}
+
+.boxOthers{
+  margin-top: 100px;
+  margin-bottom: 100px;
+  width: 100%;
+}
+
+.boxInform{
+  width: 350px;
+  background-color: white;
+  border-radius: 10px;
+  font-size: 23px;
+  color: black;
+  padding: 40px;
+  text-align: justify;
+  border: solid 1px white;
+  margin: 80px auto;
+}
+
+.boxInform:hover{
+  box-shadow: 0px 0px 20px lightgray;
+  transform: scale(1.05);
+  transition: .6s;
+}
+
+.imageInform{
+  margin-top: -120px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  color: lightgray;
+}
+.boxInform h2{
+  text-align: left;
+}

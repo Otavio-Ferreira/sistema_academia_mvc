@@ -1,0 +1,176 @@
+*{
+    padding: 0%;
+    margin: 0%;
+}
+
+.logozinha{
+    width: 150px;
+    border-radius: 10px;
+}
+
+body{
+    width: 100%;
+    background-color: #f5f5f5;
+    animation: fadeIn;
+    animation-duration: 1s;
+}
+
+
+.manual-btn{
+    transition: 1s;
+}
+
+.manual-btn:not(:last-child){
+    margin-right: 40px;
+}
+
+.manual-btn:hover{
+    background-color: white;
+}
+
+#radio1:checked ~ .first{
+    margin-left: 0;
+}
+
+#radio2:checked ~ .first{
+    margin-left: -25%;
+}
+
+#radio3:checked ~ .first{
+    margin-left: -50%;
+}
+
+#radio4:checked ~ .first{
+    margin-left: -75%;
+}
+
+.navegation-auto div{
+    transition: 1s;
+}
+
+.naveg{
+    background-color: #E88F3F;
+    border-radius: 15px;
+    text-align: center;
+    width: 80%;
+    margin: 5px auto;
+}
+
+.naveg a{
+    color: black;
+    font-weight: bold;
+}
+
+.caixanav{
+    background-color: rgb(29, 27, 27);
+}
+
+#subname{
+    font-size: 20px;
+    color: #E88F3F;
+    font-weight: bold;
+
+    animation: slideInLeft;
+    animation-duration: 2s;
+}
+
+#othek{
+    color: white;
+}
+
+.titlearea{
+    color: white;
+}
+
+#reconhecimento{
+    padding: 10px;
+    background-color: #E88F3F;
+    font-weight: bold;
+    color: #0c192c;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+#reconhecimento p{
+    animation: slideInLeft;
+    animation-duration: 2s;
+}
+
+#controle{
+    margin: 20px;
+    text-align: center;
+    color: black;
+    font-weight: bold;
+}
+
+/*barra*/
+
+.box-search{
+    display: flex;
+    justify-content: center;
+    gap: .1%;
+    margin: 10px;
+}
+
+
+.bt{
+    background-color: #E88F3F;
+}
+
+table{
+    animation: fadeIn;
+    animation-duration: 2s;
+}
+
+.relatorio{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    margin: 0%;
+    font-weight: bold;
+}
+
+.ConteinerRelat{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.cabecalho{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
+    background-color: #a8b0bf;
+    margin-top: 30px;
+    width: 90%;
+}
+
+.inputs{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 200px;
+}
+
+.inputsRelat{
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+label{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #efefef;
+}
+
+.corpo{
+    width: 90%;
+    background-color: #a8b0bf;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0);
+    margin-top: 30px;
+    
+}

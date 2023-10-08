@@ -1,0 +1,143 @@
+body{
+    animation: fadeIn;
+    animation-duration: 1s;
+}
+
+.tabletreinos{
+    height: auto;
+    width: 100%;
+    background-color: #e88f3f;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-weight: bolder;
+    align-content: space-around;
+    margin-top: 10px;
+    box-shadow: 0px 0px 5px black;
+}
+
+.tableResult{
+    max-width: 800px;
+    background-color: #e88f3f;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-weight: bolder;
+    align-content: flex-start;
+    margin-top: 10px;
+    box-shadow: 0px 0px 5px black;
+}
+
+.cabeçalho{
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border-bottom: solid 1px white;
+}
+
+/* .caixaInputs{
+    display: flex;
+    flex: wrap;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+} */
+
+.inputsDaCaixa{
+    display: block;
+}
+.tabletreinos input{
+    margin-bottom: 1%;
+    height: 35px;
+    border: none;
+    border-radius: 9px;
+}
+
+/* .trei input{
+    width: 150px;
+}
+
+.ser input{
+    width: 70px;
+    margin: 2%;
+}
+
+.rep input{
+    width: 70px;
+    margin: 2%;
+} */
+
+.pai{
+    margin-top: 25px;
+    
+}
+
+/* .treinos{
+    flex-wrap: wrap;
+} */
+
+.infor{
+    width: 99%;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-around;
+}
+
+.first{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.first input{
+    height: 40px;
+    width: 48%;
+    border-radius: 5px;
+    border: none;
+    margin: 2px;
+    
+    box-shadow: 0px 0px 5px black;
+}
+
+.second{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.second input, select{
+    box-shadow: 0px 0px 5px black;
+}
+
+.second div{
+    width: 48%;
+}
+
+.obj{
+    height: 40px;
+    border-radius: 6px;
+    width: 100%;
+    border: none;
+    margin: 2px;
+}
+#ob2{
+    display: flex;
+    justify-content: space-between;
+}
+
+.ob3{
+    width: 95%;
+
+    height: 40px;
+    border-radius: 6px;
+   
+    border: none;
+    margin: 2px;
+}
+
+
+  

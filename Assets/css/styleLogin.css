@@ -1,0 +1,125 @@
+*{
+    padding: 0%;
+    margin: 0%;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    background-color: #f9f9f9;
+}
+
+#containerLogin{
+    width: 100%;
+    padding: 15px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: center;
+
+    animation: fadeIn;
+    animation-duration: 3s;
+}
+
+#logo{
+    width: 400px;
+    height: 420px;
+    background-color: black;
+    border-radius: 10px;
+    margin: 5px;
+
+    animation: slideInLeft;
+    animation-duration: 2s;
+}
+
+#login{
+    width: 400px;
+    height: 420px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: space-between;
+    margin: 5px;
+
+    animation: slideInRight;
+    animation-duration: 2s;
+}
+
+#formlongin{
+    width:400px;
+    height: 300px;
+    padding: 5px;
+    background-color: #E3813D;
+    border-radius: 10px;
+}
+
+#formlongin h1{
+    text-align: center;
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: lighter;
+}
+
+form{
+    margin: auto;
+    width: 350px;
+    height: 250px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: space-around;
+}
+
+#create{
+    width: 400px;
+    padding: 20px;
+    background-color: #E3813D;
+    border-radius: 10px;
+}
+
+p{
+    font-size: 20px;
+    text-align: center;
+    color: white;
+}
+
+
+img{
+    width: 400px;
+    border-radius: 10px;
+}
+
+div{
+    position: relative;
+}
+
+div i{
+    font-size:30px;
+    cursor: pointer;
+    position: absolute;
+    right: 25%;
+    bottom:41%;
+    color: #ccc;
+}
+
+@media (max-width: 1200px){
+    .treinos{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .tabletreinos{
+        margin: 10px auto;
+    }
+
+    .tabela{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}

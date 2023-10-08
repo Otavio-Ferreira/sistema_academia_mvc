@@ -1,0 +1,73 @@
+.containerDados{
+    width: 95%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    margin: 10% auto;
+
+}
+
+main{
+    width: 100%;
+    min-height: 60vh;
+}
+
+
+.editImg{
+    width: 450px;
+    height: 400px;
+    background-color: #E3813D;
+    margin: 10px;
+    border-radius: 15px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: space-around;
+
+    
+    box-shadow: 0px 0px 5px black;
+    
+}
+
+.perfil{
+    width: 300px;
+    border-radius: 100%;
+}
+
+#image{
+    background-color: white;
+    width: auto;
+    height: auto;
+    border: none;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+}
+.editInfor{
+    width: 450px;
+    height: 400px;
+    background-color:#E3813D;
+    margin: 10px;
+    border-radius: 15px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: center;
+
+    
+    box-shadow: 0px 0px 5px black;
+
+}
+
+input{
+    display: block;
+    height: 50px;
+    width: 350px;
+    border-radius: 10px;
+    border: none;
+    justify-content: center;
+    align-content: space-around;
+}

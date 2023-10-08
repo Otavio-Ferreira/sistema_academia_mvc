@@ -1,0 +1,14 @@
+main{
+  margin: auto;
+  width: 1000px;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; 
+  align-content: center;
+}
+
+
+#accordionExample{
+  width: 800px;
+}
