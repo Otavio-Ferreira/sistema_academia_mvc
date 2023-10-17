@@ -36,7 +36,9 @@ label{
 
 @media(max-width: 900px){
     form{
-        width: 400px;
-        display: block;
+        width: 95%;
+    }
+    .conteinerForm{
+        width: 100%;
     }
 }

@@ -92,4 +92,16 @@ class Alunos extends Model
 
         return $data;
     }
+
+    public function getInfoAluno($email){
+        $data = array();
+        $sql = $this->db->prepare("SELECT * FROM alunos WHERE email = :email");
+        $sql->bindValue(':email', $email);
+        $sql->execute();
+
+        if ($sql->rowCount() > 0) {
+            $data = $sql->fetch(PDO::FETCH_ASSOC);
+        }
+        return $data;
+    }
 }

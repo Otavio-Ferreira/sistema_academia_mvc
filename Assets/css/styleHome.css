@@ -13,6 +13,10 @@ header{
   min-width: 100%;
 }
 
+span{
+  font-size: 26px;
+}
+
 #car{
   box-shadow:0px 0px 20px #142b4e;
 }
@@ -150,4 +154,10 @@ header{
 }
 .boxInform h2{
   text-align: left;
+}
+
+@media(max-width: 500px){
+  span{
+    font-size: 18px;
+  }
 }

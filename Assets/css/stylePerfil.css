@@ -71,3 +71,13 @@ input{
     justify-content: center;
     align-content: space-around;
 }
+
+@media(max-width: 500px){
+    .editInfor{
+        width: 100%;
+        padding: 10px;
+    }
+    input{
+        width: 300px;
+    }
+}

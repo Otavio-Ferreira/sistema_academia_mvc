@@ -2,16 +2,46 @@
 
     class Treino extends Model{
 
-        public function getTreino($id){
+        public function getInfoTreino($id){
 
             $data = array();
             
-            $sql = $this->db->prepare("SELECT * FROM treinos WHERE idAluno = :id");
+            $sql = $this->db->prepare("SELECT * FROM info_treinos WHERE idAluno = :id");
             $sql->bindValue(':id', $id);
             $sql->execute();
 
             if($sql->rowCount() >0){    
                 $data = $sql->fetchAll(PDO::FETCH_ASSOC);
+            }
+
+            return $data;
+        }
+
+        public function getTreino($idTreino){
+
+            $data = array();
+            
+            $sql = $this->db->prepare("SELECT * FROM treinos WHERE idTreino = :idTreino");
+            $sql->bindValue(':idTreino', $idTreino);
+            $sql->execute();
+
+            if($sql->rowCount() >0){    
+                $data = $sql->fetchAll(PDO::FETCH_ASSOC);
+            }
+
+            return $data;
+        }
+
+        public function getInfoTreinoByIdTreino($idTreino){
+            
+            $data = array();
+            
+            $sql = $this->db->prepare("SELECT * FROM info_treinos WHERE idTreino = :idTreino");
+            $sql->bindValue(':idTreino', $idTreino);
+            $sql->execute();
+
+            if($sql->rowCount() >0){    
+                $data = $sql->fetch(PDO::FETCH_ASSOC);
             }
 
             return $data;
@@ -27,18 +57,24 @@
             $sql->execute();
         }
 
-        public function setTreino($dia, $treinos, $series, $repeticoes, $idAluno){
-            $sql = $this->db->prepare("INSERT INTO treinos (diaSemana, nomeTreino, serieTreino, repeticao, idAluno) VALUES (:dia, :treinos, :series, :repeticoes, :idAluno);");
+        public function setInfoTreino($dia, $idAluno){
+            $sql = $this->db->prepare("INSERT INTO info_treinos (diaSemana, idAluno) VALUES (:dia, :idAluno);");
             $sql->bindValue(':dia', $dia);
-            $sql->bindValue(':treinos', $treinos);
-            $sql->bindValue(':series', $series);
-            $sql->bindValue(':repeticoes', $repeticoes);
             $sql->bindValue(':idAluno', $idAluno);
             $sql->execute();
         }
 
+        public function setTreino($treinos, $series, $repeticoes, $idTreino){
+            $sql = $this->db->prepare("INSERT INTO treinos (nomeTreino, serieTreino, repeticao, idTreino) VALUES (:treinos, :series, :repeticoes, :idTreino);");
+            $sql->bindValue(':treinos', $treinos);
+            $sql->bindValue(':series', $series);
+            $sql->bindValue(':repeticoes', $repeticoes);
+            $sql->bindValue(':idTreino', $idTreino);
+            $sql->execute();
+        }
+
         public function deleteTreino($idAluno, $idTreino){
-            $sql = $this->db->prepare("DELETE FROM treinos WHERE idAluno = :idAluno AND id = :idTreino");
+            $sql = $this->db->prepare("DELETE FROM info_treinos WHERE idAluno = :idAluno AND idTreino = :idTreino");
             $sql->bindValue(':idAluno', $idAluno);
             $sql->bindValue(':idTreino', $idTreino);
             $sql->execute();

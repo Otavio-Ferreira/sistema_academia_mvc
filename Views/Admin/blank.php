@@ -22,7 +22,7 @@
       </form>
     </section>
     <section class="ConteinerRelat">
-      <div class="cabecalho">
+      <div class="cabecalho rounded">
         <div class="mb-3 inputs">
           <label for="mes" class="form-label">Data</label>
           <input type="text" class="form-control inputsRelat" id="mes" name="mes" value="<?= date('d/m/Y'); ?>" readonly>
@@ -48,8 +48,8 @@
           <input type="text" class="form-control inputsRelat" id="formGroupExampleInput" value="R$ <?= $balanco_atual['balancoAtual'];?>" readonly>
         </div>
       </div>
-      <div class="corpo">
-        <div class="m-3 table-responsive">
+      <div class="corpo rounded">
+        <div class="m-3 table-responsive rounded">
           <table class="table table-striped table-bordered bg-white table-hover tabela">
               <thead style="background: #c7d9d2; color: white;">
                   <tr>

@@ -26,17 +26,15 @@ class LoginController extends Controller
 					if(isset($_POST["check"])){
 						if(!$user->verifyEmailAluno($post["email"])){
 							$data["alert"] = message()->warning("Email não encontrado em nossa base.");
-						}else{						
-							//então tentamos fazer o login com a senha
+						}else{			
 							if($user->doLoginAluno($post["email"], $post["passwd"])){
-								echo 'foi aluno';
-								exit;
-								header("Location: ".BASE_URL."Home");
+								header("Location: ".BASE_URL."HomeAluno/index/".$post['email']);
 								exit;
 							}else{
 								$data["alert"] = message()->error("Senha inválida.");
 							}
 						}
+						$this->loadView("Login/index", $data);
 						exit;
 					}
 

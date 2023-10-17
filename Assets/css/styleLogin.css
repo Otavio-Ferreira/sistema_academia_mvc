@@ -108,6 +108,19 @@ div i{
 }
 
 @media (max-width: 1200px){
+        
+    #containerLogin{
+        max-width: 400px;
+        padding: 20px;
+    }
+
+    #logo{
+        display: none;
+    }
+
+    #login{
+        max-width: 100%;
+    }
     .treinos{
         display: flex;
         flex-wrap: wrap;

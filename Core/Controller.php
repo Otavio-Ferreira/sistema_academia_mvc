@@ -13,6 +13,10 @@ Class Controller{
 		require 'Views/Templates/'.TEMPLATE_ADMIN.'.php';
 	}
 
+	public function loadTemplateAluno($viewName, $viewData = array()){	
+		require 'Views/Templates/'.TEMPLATE_ALUNO.'.php';
+	}
+
 	public function loadViewInTemplate($viewName, $viewData = array()){
 		extract($viewData);
 		require 'Views/'.$viewName.'.php';

@@ -32,6 +32,8 @@ if(ENVIRONMENT == 'development'){
 	define("TEMPLATE", "default");
 	define("TEMPLATE_ADMIN", "admin");
 
+	define("TEMPLATE_ALUNO", "aluno");
+
 	/**
 	 * DATES
 	 */

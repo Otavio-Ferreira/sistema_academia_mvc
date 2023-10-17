@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-lg bg-dark">
     <div class="container-fluid d-flex justify-content-between">
       <div>
-        <span style="color: white; font-weight: bold; font-size: 25px;">OTHEK <span style="color: orange; font-weight: bold;">SYSTEM ACADEMY</span></span>
+        <span style="color: white; font-weight: bold;">OTHEK <span style="color: orange; font-weight: bold;">SYSTEM ACADEMY</span></span>
       </div>
       <div>
         <a href="<?= BASE_URL .'Login'; ?>" class="btn btn-outline-warning w-auto">Login</a> 

@@ -178,14 +178,20 @@ CREATE TABLE `avaliacao` (
 -- Estrutura da tabela `treinos`
 --
 
-CREATE TABLE `treinos` (
-  `id` int auto_increment primary key not null,  
+CREATE TABLE `info_treinos` (
+  `idTreino` int auto_increment primary key not null,  
   `diaSemana` varchar(20),  
+  `idAluno` int,
+);
+
+CREATE TABLE `treinos` (
+  `id` int auto_increment primary key not null,
   `nomeTreino` varchar(100),  
   `serieTreino` varchar(100),  
   `repeticao` varchar(100), 
-  `idAluno` int
+  `idTreino` int
 );
+
 
 
 --

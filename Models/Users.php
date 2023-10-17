@@ -30,6 +30,26 @@ Class Users extends Model{
 			}
 		}
 	}
+
+	public function setLoggedAluno(){
+		if(isset($_SESSION[CONF_SESSION_NAME]) && !empty($_SESSION[CONF_SESSION_NAME])){
+
+			$id = $_SESSION[CONF_SESSION_NAME];
+
+			$sql = $this->db->prepare("SELECT * FROM alunos WHERE id = :id");
+			$sql->bindValue(":id", $id);
+			$sql->execute();
+
+			if($sql->rowCount() > 0){
+				$this->userInfo = $sql->fetch();
+
+				
+				$this->permissions = new Permissions();
+				$this->permissions->setGroup($this->userInfo['id_group']);
+			}
+		}
+	}
+
 	public function verifyEmail($email){
 		$sql = $this->db->prepare("SELECT id FROM users WHERE email = :email AND situation = '1'");
 		$sql->bindValue(":email", $email);
@@ -46,7 +66,7 @@ Class Users extends Model{
 		$sql = $this->db->prepare("SELECT id FROM alunos WHERE email = :email");
 		$sql->bindValue(":email", $email);
 		$sql->execute();
-
+		
 		if($sql->rowCount() > 0 ){
 			return true;
 		} else {
@@ -88,7 +108,7 @@ Class Users extends Model{
 		$sql = $this->db->prepare("SELECT id, senha FROM alunos WHERE email = :email");
 		$sql->bindValue(":email", $email);
 		$sql->execute();
-
+		
 		if($sql->rowCount() > 0){
 			$row = $sql->fetch();
 

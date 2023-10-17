@@ -54,7 +54,7 @@
         <input type="submit"  name="submit" id="submit" class="btn bg-white mt-3 w-100" style="color: #E3813D" value="Adicionar nova Avaliação">
       </div>
   </form>
-  <div class="container p-2 rounded-top div-table">
+  <div class="container table-responsive p-2 rounded-top div-table">
     <table class="table table-striped table-bordered bg-white table-hover tabela">
         <thead style="background: #E3813D; color: white;">
           <tr>
