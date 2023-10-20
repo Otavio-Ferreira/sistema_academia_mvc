@@ -22,6 +22,11 @@ Class Controller{
 		require 'Views/'.$viewName.'.php';
 	}
 
+	public function loadViewInTemplateTreino($viewName, $viewData = array()){
+		extract($viewData);
+		require 'Views/'.$viewName.'.php';
+	}
+
 	public function loadLibrary($lib){
 		if(file_exists('Vendor/'.$lib.'.php')){
 			require_once 'Vendor/'.$lib.'.php';

@@ -59,9 +59,9 @@ if(ENVIRONMENT == 'development'){
 	*/
 	define("CONF_MAIL_HOST", "smtp.gmail.com");
 	define("CONF_MAIL_PORT", 465);
-	define("CONF_MAIL_USER", "email");
-	define("CONF_MAIL_PASS", "pass");
-	define("CONF_MAIL_SENDER", ["name" => "name", "address" => "email"]);
+	define("CONF_MAIL_USER", "otavioferreira4343@gmail.com");
+	define("CONF_MAIL_PASS", "");
+	define("CONF_MAIL_SENDER", ["name" => "Otavio", "address" => "otavioferreira4343@gmail.com"]);
 
 	define("CONF_MAIL_OPTION_LANG", "br");
 	define("CONF_MAIL_OPTION_HTML", true);

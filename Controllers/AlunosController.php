@@ -16,9 +16,12 @@ class AlunosController extends Controller
             header("Location: " . BASE_URL . "Login");
             exit;
         } else {
+            if($_SESSION['TYPE'] == 'aluno') {
+				header('Location: '.BASE_URL.'HomeAluno');
+				exit;
+			}
             $users->setLoggedUser();
             $this->data['name'] = $users->getName();
-
             $this->alunos = new Alunos();
         }
     }

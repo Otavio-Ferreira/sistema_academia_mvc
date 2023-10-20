@@ -34,7 +34,13 @@
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
               <li class="nav-item naveg">
-                <a class="nav-link  <?= (isset($viewData['nivel-1']) && $viewData['nivel-1'] == "Perfil")?'active':''; ?>" aria-current="page" href="<?= BASE_URL.'HomeAluno/index/'.$viewData['email'];?>">Perfil</a>
+                <a class="nav-link  <?= (isset($viewData['nivel-1']) && $viewData['nivel-1'] == "Perfil")?'active':''; ?>" aria-current="page" href="<?= BASE_URL.'HomeAluno';?>">Perfil</a>
+              </li>
+              <li class="nav-item naveg">
+                <a class="nav-link  <?= (isset($viewData['nivel-1']) && $viewData['nivel-1'] == "Treino")?'active':''; ?>" aria-current="page" href="<?= BASE_URL.'HomeAluno/getInfoTreino/';?>">Treino</a>
+              </li>
+              <li class="nav-item naveg">
+                <a class="nav-link  <?= (isset($viewData['nivel-1']) && $viewData['nivel-1'] == "Avaliacao")?'active':''; ?>" aria-current="page" href="<?= BASE_URL.'HomeAluno/getAvaliacao/';?>">Avaliação Física</a>
               </li>
               <li class="nav-item naveg">
                 <a class="nav-link" href="<?= BASE_URL.'Login/logout';?>">Sair</a>

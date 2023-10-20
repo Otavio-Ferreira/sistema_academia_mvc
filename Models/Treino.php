@@ -73,9 +73,18 @@
             $sql->execute();
         }
 
-        public function deleteTreino($idAluno, $idTreino){
-            $sql = $this->db->prepare("DELETE FROM info_treinos WHERE idAluno = :idAluno AND idTreino = :idTreino");
-            $sql->bindValue(':idAluno', $idAluno);
+        public function deleteAll($idTreino){
+            $sql = $this->db->prepare("DELETE FROM info_treinos WHERE idTreino = :idTreino");
+            $sql->bindValue(':idTreino', $idTreino);
+            $sql->execute();
+            
+            $sql = $this->db->prepare("DELETE FROM treinos WHERE idTreino = :idTreino");
+            $sql->bindValue(':idTreino', $idTreino);
+            $sql->execute();
+        }
+
+        public function deleteTreino($idTreino){
+            $sql = $this->db->prepare("DELETE FROM treinos WHERE id = :idTreino");
             $sql->bindValue(':idTreino', $idTreino);
             $sql->execute();
         }

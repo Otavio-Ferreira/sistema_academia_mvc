@@ -1,4 +1,4 @@
-<main class="content">
+<main class="content m-5">
 	<div class="container-fluid p-0">
 
 		<div class="row mb-2 mb-xl-3">

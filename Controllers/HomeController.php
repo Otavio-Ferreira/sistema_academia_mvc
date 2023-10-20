@@ -11,6 +11,10 @@ class HomeController extends Controller{
 			header('Location: '.BASE_URL.'Login');
 			exit;
 		}else{
+			if($_SESSION['TYPE'] == 'aluno') {
+				header('Location: '.BASE_URL.'HomeAluno');
+				exit;
+			}
 			$user->setLoggedUser();
 			$this->data["name"] = $user->getName();
 		}

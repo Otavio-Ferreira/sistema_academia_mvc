@@ -43,10 +43,16 @@
                 <a class="nav-link <?= (isset($viewData['nivel-1']) && $viewData['nivel-1'] == "CadAluno")?'active':''; ?>" href="<?= BASE_URL.'Alunos/create'?>">Cadastrar Aluno</a>
               </li>
               <li class="nav-item naveg">
-                <a class="nav-link <?= (isset($viewData['nivel-1']) && $viewData['nivel-1'] == "Treino")?'active':''; ?>" href="<?= BASE_URL.'Treino/show'?>">Treino Personalizado</a>
+                <a class="nav-link <?= (isset($viewData['nivel-1']) && $viewData['nivel-1'] == "Perfil")?'active':''; ?>" href="<?= BASE_URL.'Perfil'?>">Acessar Perfil</a>
               </li>
               <li class="nav-item naveg">
-                <a class="nav-link <?= (isset($viewData['nivel-1']) && $viewData['nivel-1'] == "Perfil")?'active':''; ?>" href="<?= BASE_URL.'Perfil'?>">Acessar Perfil</a>
+                <a class="nav-link <?= (isset($viewData['nivel-1']) && $viewData['nivel-1'] == "Configurações")?'active':''; ?>" href="<?= BASE_URL.'Users'?>">Configurações</a>
+              </li>
+              <li class="nav-item naveg">
+                <a class="nav-link <?= (isset($viewData['nivel-1']) && $viewData['nivel-1'] == "Permissões")?'active':''; ?>" href="<?= BASE_URL.'Permissions'?>">Permissões</a>
+              </li>
+              <li class="nav-item naveg">
+                <a class="nav-link <?= (isset($viewData['nivel-1']) && $viewData['nivel-1'] == "Paramêtros")?'active':''; ?>" href="<?= BASE_URL.'Permissions/addParams'?>">Paramêtros</a>
               </li>
               <li class="nav-item naveg">
                 <a class="nav-link" href="<?= BASE_URL.'Login/logout';?>">Sair</a>

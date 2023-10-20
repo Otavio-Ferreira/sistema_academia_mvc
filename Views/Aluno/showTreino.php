@@ -1,47 +1,62 @@
 <main>
-  <div class="m-3 div-table d-flex flex-wrap">
-    <?php foreach ($list_treino as $list) : ?>
-      <div class="accordion" id="accordionExample">
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?= $list['id'] ?>" aria-expanded="true" aria-controls="collapse<?= $list['id'] ?>">
-              <?= $list['diaSemana'] ?>
-            </button>
-          </h2>
-          <div id="collapse<?= $list['id'] ?>" class="accordion-collapse collapse <?php echo ($list['diaSemana'] == 'Segunda') ? 'show' : ''; ?>" data-bs-parent="#accordionExample">
-            <div class="accordion-body w-100">
-              <table class="table table-striped table-bordered table-hover m-auto">
-                <thead style="background: #E3813D; color: black;">
-                  <tr>
-                    <th scope="col">Treino</th>
-                    <th scope="col">Series</th>
-                    <th scope="col">Repetições</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th>
-                      <?php foreach ($list['nomeTreino'] as $treino) : ?>
-                        <?= $treino ?> <br>
-                      <?php endforeach; ?>
-                    </th>
-                    <th>
-                      <?php foreach ($list['serieTreino'] as $treino) : ?>
-                        <?= $treino ?> <br>
-                      <?php endforeach; ?>
-                    </th>
-                    <th>
-                      <?php foreach ($list['repeticao'] as $treino) : ?>
-                        <?= $treino ?> <br>
-                      <?php endforeach; ?>
-                    </th>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
-      <?php endforeach; ?>
-      </div>
+  <div class="container mt-5 mb-5 p-2 rounded">
+    <table class="table table-striped table-bordered bg-white table-hover m-auto">
+      <thead>
+        <tr>
+          <th scope="col">Nome</th>
+          <th scope="col">Nível</th>
+          <th scope="col">Objetivo</th>
+          <th scope="col">Personal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><?= $list_items['idade'] ?></td>
+          <td><?= $list_items['nivel'] ?></td>
+          <td><?= $list_items['objetivo'] ?></td>
+          <td><?= $list_items['personal'] ?></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="container mt-5 p-2 d-flex rounded">
+    <div class="w-25 p-1">
+      <table class="table table-striped table-bordered bg-white table-hover m-auto">
+        <thead>
+          <tr>
+            <th scope="col">Dia da Semana</th>
+          </tr>
+        </thead>
+        <?php foreach ($list_info_treino as $list) : ?>
+          <tbody>
+            <tr>
+              <td>
+                <a type="button" class="btn btn-secondary w-100 <?= (isset($viewData['nivel-t']) && $viewData['nivel-t'] == $list['idTreino']) ? 'active border-dark fw-bold' : ''; ?>" href="<?= BASE_URL . 'HomeAluno/getInfoTreino/'.$list['idTreino']; ?>"><?= $list['diaSemana'] ?></a>
+              </td>
+            </tr>
+          </tbody>
+        <?php endforeach; ?>
+      </table>
+    </div>
+    <div class="w-75 p-1">
+      <table class="table table-striped table-bordered bg-white table-hover">
+        <thead style="background: #E3813D; color: white;">
+          <tr>
+            <th scope="col">Treino</th>
+            <th scope="col">Series</th>
+            <th scope="col">Repetições</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php foreach ($list_treino as $list) : ?>
+            <tr>
+              <td><?= $list['nomeTreino']; ?></td>
+              <td><?= $list['serieTreino']; ?></td>
+              <td><?= $list['repeticao']; ?></td>
+            </tr>
+          <?php endforeach; ?>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </main>

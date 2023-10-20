@@ -1,4 +1,4 @@
-<main class="content">
+<main class="content m-5">
     <div class="container-fluid p-0">
         <div class="row mb-2 mb-xl-3">
             <div class="col-auto d-none d-sm-block">
@@ -97,17 +97,17 @@
                                                             <div class="row">
                                                                 <div class="col-md-12 mb-3">
                                                                     <div class="form-group">
-                                                                        <label for="group_name<?= $group['id'];?>" class="form-label">Nome do Grupo</label>
-                                                                        <input type="text" class="form-control" name="group_name_edit" id="group_name<?= $group['id'];?>" value="<?= $group['name'] ;?>">
-                                                                        <input type="hidden" name="id_group" value="<?= $group['id'] ;?>">
+                                                                        <label for="group_name<?= $group['id']; ?>" class="form-label">Nome do Grupo</label>
+                                                                        <input type="text" class="form-control" name="group_name_edit" id="group_name<?= $group['id']; ?>" value="<?= $group['name']; ?>">
+                                                                        <input type="hidden" name="id_group" value="<?= $group['id']; ?>">
                                                                     </div>
                                                                 </div>
                                                                 <hr>
                                                                 <div class="col-md-12">
                                                                     <?php foreach ($params_list as $params) : ?>
                                                                         <div class="form-check form-switch ms-2">
-                                                                            <input class="form-check-input" type="checkbox" id="params_edit<?= $group['id'].$params['id']; ?>" name="params_edit[]" value="<?= $params['id']; ?>" <?= (in_array($params['id'], explode(',', $group['params'])) ? 'checked' : '') ?>>
-                                                                            <label class="form-check-label" for="params_edit<?= $group['id'].$params['id']; ?>"><?= $params['description']; ?></label>
+                                                                            <input class="form-check-input" type="checkbox" id="params_edit<?= $group['id'] . $params['id']; ?>" name="params_edit[]" value="<?= $params['id']; ?>" <?= (in_array($params['id'], explode(',', $group['params'])) ? 'checked' : '') ?>>
+                                                                            <label class="form-check-label" for="params_edit<?= $group['id'] . $params['id']; ?>"><?= $params['description']; ?></label>
                                                                         </div>
                                                                     <?php endforeach; ?>
                                                                 </div>

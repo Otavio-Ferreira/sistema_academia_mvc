@@ -32,6 +32,7 @@ Class Users extends Model{
 	}
 
 	public function setLoggedAluno(){
+		$data = array();
 		if(isset($_SESSION[CONF_SESSION_NAME]) && !empty($_SESSION[CONF_SESSION_NAME])){
 
 			$id = $_SESSION[CONF_SESSION_NAME];
@@ -41,12 +42,11 @@ Class Users extends Model{
 			$sql->execute();
 
 			if($sql->rowCount() > 0){
-				$this->userInfo = $sql->fetch();
-
+				$data = $sql->fetchAll(PDO::FETCH_ASSOC);
 				
-				$this->permissions = new Permissions();
-				$this->permissions->setGroup($this->userInfo['id_group']);
 			}
+
+			return $data;
 		}
 	}
 
@@ -142,6 +142,20 @@ Class Users extends Model{
 		return $this->userInfo["id"];
 	}
 
+	public function getIdByEmail($email){
+		$array = array();
+
+		$sql = $this->db->prepare("SELECT * FROM users WHERE email = :email");
+		$sql->bindValue(':email', $email);
+		$sql->execute();
+
+		if($sql->rowCount() > 0){
+			$array = $sql->fetch(PDO::FETCH_ASSOC);
+		}
+
+		return $array;
+	}
+
 	public function getById($id){
 		$array = array();
 
@@ -169,7 +183,7 @@ Class Users extends Model{
 
 	public function createPass($pass, $id_user){
 		$sql = $this->db->prepare("UPDATE users SET password = :pass WHERE id = :id_user");
-		$sql->bindValue(':pass', $pass);
+		$sql->bindValue(':pass', password_hash($pass, PASSWORD_DEFAULT));
 		$sql->bindValue(':id_user', $id_user);	
 		$sql->execute();
 	}
@@ -202,12 +216,22 @@ Class Users extends Model{
 		}
 	}
 
-
-
 	public function getInfoByEmail($email){
 		$result = array();
 		$sql = $this->db->prepare("SELECT * FROM users WHERE email = :email");
 		$sql->bindValue(':email', $email);
+		$sql->execute();
+
+		if($sql->rowCount() > 0){
+			$result = $sql->fetch(PDO::FETCH_ASSOC);
+		}
+		return $result;
+	}
+
+	public function getInfoByHash($hash_user){
+		$result = array();
+		$sql = $this->db->prepare("SELECT * FROM hash_users WHERE hash_user = :hash_user AND situation = 1");
+		$sql->bindValue(':hash_user', $hash_user);
 		$sql->execute();
 
 		if($sql->rowCount() > 0){

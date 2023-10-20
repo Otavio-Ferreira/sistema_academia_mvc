@@ -13,6 +13,10 @@ class TreinoController extends Controller
             header("Location: " . BASE_URL . "Login");
             exit;
         } else {
+            if($_SESSION['TYPE'] == 'aluno') {
+				header('Location: '.BASE_URL.'HomeAluno');
+				exit;
+			}
             $users->setLoggedUser();
             $this->data['name'] = $users->getName();
         }
@@ -197,8 +201,24 @@ class TreinoController extends Controller
         }
 
         $treino = new Treino();
-        $treino->deleteTreino($idAluno, $idTreino);
+        $treino->deleteAll($idTreino);
 
         header('Location: ' . BASE_URL . 'Treino/index/' . $idAluno);
+    }
+
+    public function deleteTreino($idAluno, $idTreino, $id){
+        $idAluno = addslashes($idAluno);
+        $idTreino = addslashes($idTreino);
+        $id = addslashes($id);
+
+        if (empty($idAluno) && !is_int($idAluno) && empty($idTreino) && !is_int($idTreino) && empty($id) && !is_int($id)) {
+            header('Location: ' . BASE_URL . 'Treino/show/' . $idAluno. '/'. $idTreino .'/'. $id);
+            exit;
+        }
+
+        $treino = new Treino();
+        $treino->deleteTreino($id);
+        header('Location: '.BASE_URL.'Treino/show/'.$idAluno.'/'.$idTreino);
+        exit;
     }
 }

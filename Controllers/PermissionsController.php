@@ -10,6 +10,10 @@ class PermissionsController extends Controller
 			header('Location: ' . BASE_URL . 'Login');
 			exit;
 		} else {
+			if($_SESSION['TYPE'] == 'aluno') {
+				header('Location: '.BASE_URL.'HomeAluno');
+				exit;
+			}
 			$user->setLoggedUser();
 			$this->data["name"] = $user->getName();
 		}
@@ -17,8 +21,7 @@ class PermissionsController extends Controller
 
 	public function index()
 	{
-		$this->data['nivel-1'] = 'Configurações';
-		$this->data['nivel-2'] = "Permissões";
+		$this->data['nivel-1'] = "Permissões";
 
 
 		$user = new Users();
@@ -78,8 +81,7 @@ class PermissionsController extends Controller
 
 	public function addParams()
 	{
-		$this->data['nivel-1'] = 'Configurações';
-		$this->data['nivel-2'] = "Permissões";
+		$this->data['nivel-1'] = "Paramêtros";
 
 
 		$user = new Users();

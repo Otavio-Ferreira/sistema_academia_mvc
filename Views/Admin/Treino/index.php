@@ -1,18 +1,18 @@
 <div class="container d-block justify-content-center w-100 p-3">
-  <form action="<?= BASE_URL; ?>Treino/updateInfoTreino/<?= $list_items['id'] ?>" method="post" class="container d-flex flex-wrap justify-content-center pai">
+  <form action="<?= BASE_URL; ?>Treino/updateInfoTreino/<?= $list_items['id'] ?>" method="post" class="container d-flex flex-wrap justify-content-center pai rounded">
     <div class="infor">
       <div class="first">
         <input type="text" class="form-control" id="floatingInputAluno" placeholder="Aluno" name="aluno" placeholder="Aluno" value="<?= $list_items['nome'] ?>" readonly>
-        <input type="text" class="form-control" id="floatingInputPersonal" name="personal" placeholder="Personal" value="" required>
+        <input type="text" class="form-control" id="floatingInputPersonal" name="personal" placeholder="Personal" value="<?= $list_items['personal'] ?>" required>
       </div>
       <div class="second">
         <div id="ob">
-          <input type="text" class="form-control obj" placeholder="Objetivo" name="objetivo" value="" required>
+          <input type="text" class="form-control obj" placeholder="Objetivo" name="objetivo" value="<?= $list_items['objetivo']?>" required>
         </div>
         <div id="ob2">
           <div class="level">
             <select name="level" id="level" class="ob3" class="form-control" required>
-              <option value="Nivel">Nivel</option>
+              <option value="Nivel"><?= $list_items['nivel']?></option>
               <option value="Iniciante">Iniciante</option>
               <option value="Intermediario">Intermediário</option>
               <option value="Avançado">Avançado</option>

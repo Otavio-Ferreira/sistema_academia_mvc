@@ -6,71 +6,72 @@ class HomeAlunoController extends Controller
   public function __construct()
   {
     $user = new Users();
+
     if (!$user->isLogged()) {
       header('Location: ' . BASE_URL . 'Login');
       exit;
     }
+    else {
+      if($_SESSION['TYPE'] == 'admin') {
+				header('Location: '.BASE_URL.'Home');
+				exit;
+			}
+    }
   }
 
-  public function index($email)
+  public function index()
   {
-    $email = addslashes($email);
+    $id = $_SESSION['sistema_academia'];
     $this->data['nivel-1'] = 'Perfil';
-    $this->data['email'] = $email;
     $this->data['CSS'] = customCSS('styleAluno');
 
     $alunos = new Aluno();
 
-    $this->data['list_items'] = $alunos->getInfoAluno($email);
+    $this->data['list_items'] = $alunos->getInfoAluno($id);
 
     $this->loadTemplateAluno('Aluno/blank', $this->data);
   }
 
-  public function getAvaliacao($id, $email)
+  public function getAvaliacao($data)
   {
-    $id = addslashes($id);
-    $email = addslashes($email);
-
-    if (empty($id) && !is_int($id) && empty($email) && !is_int($email)) {
-      header('Location: ' . BASE_URL . 'Aluno');
-      exit;
-    }
-
-    $this->data['email'] = $email;
-
-    $this->data['CSS'] = customCSS('styleAluno');
+    $data = addslashes($data);
+    $id = $_SESSION['sistema_academia'];
+    $this->data['nivel-1'] = 'Avaliacao';
+    $this->data['nivel-av'] = $data;
 
     $alunos = new Aluno();
-
+    
     $this->data['list_items'] = $alunos->getAvaliacaoAluno($id);
-
+    $this->data['list_avaliacao'] = $alunos->getAvaliacaoAlunoByData($id, $data);
+    
+    $this->data['CSS'] = customCSS('styleAluno');
     $this->loadTemplateAluno('Aluno/showAvaliacao', $this->data);
   }
 
-  public function getTreino($id, $email)
+  public function getInfoTreino($idTreino)
   {
-    $id = addslashes($id);
-    $email = addslashes($email);
+    $idTreino = addslashes($idTreino);
+    $id = $_SESSION['sistema_academia'];
+    $this->data['nivel-1'] = 'Treino';
+    $this->data['nivel-t'] = $idTreino;
 
-    if (empty($id) && !is_int($id) && empty($email) && !is_int($email)) {
-      header('Location: ' . BASE_URL . 'Aluno');
-      exit;
-    }
 
     $treino = new Treino();
+    $aluno = new Aluno();
 
-    $this->data['list_treino'] = $treino->getTreino($id);
+    $this->data['list_items'] = $aluno->getInfoAluno($id);
+    $this->data['list_info_treino'] = $treino->getInfoTreino($id);
+    $this->data['list_treino'] = $treino->getTreino($idTreino);
 
-    foreach ($this->data['list_treino'] as &$treino) {
+    // foreach ($this->data['list_treino'] as &$treino) {
 
-      $treino['nomeTreino'] = explode(',', $treino['nomeTreino']);
-      $treino['serieTreino'] = explode(',', $treino['serieTreino']);
-      $treino['repeticao'] = explode(',', $treino['repeticao']);
-    }
+    //   $treino['nomeTreino'] = explode(',', $treino['nomeTreino']);
+    //   $treino['serieTreino'] = explode(',', $treino['serieTreino']);
+    //   $treino['repeticao'] = explode(',', $treino['repeticao']);
+    // }
     
     $this->data['CSS'] = customCSS('styleAluno');
     $this->data['CSS'] = customCSS('styleShowTreinos');
-    $this->data['email'] = $email;
 
 
     $this->loadTemplateAluno('Aluno/showTreino', $this->data);

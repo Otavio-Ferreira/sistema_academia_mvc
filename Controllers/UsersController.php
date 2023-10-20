@@ -44,15 +44,30 @@ class UsersController extends Controller
             if (isset($_POST['name']) && !empty($_POST['name']) && isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['type_user']) && !empty($_POST['type_user'])) {
                 $name = addslashes($_POST['name']);
                 $email = addslashes($_POST['email']);
-                $id_group = 1;
+                $id_group = addslashes($_POST['type_user']);
                 $type_user = addslashes($_POST['type_user']);
                 $hash_email = md5($email);
 
-                if ($type_user == 'adm') {
+
+                if ($type_user == 'adm') {  
                     $type_user = 1;
-                } else {
+                } 
+                else {
                     $type_user = 0;
                 }
+                // if ($type_user == 'Desenvolvimento') {  
+                //     $type_user = 1;
+                // } 
+                // else if($type_user == 'Administrador'){
+                //     $type_user = 2;
+                // }
+                // else if($type_user == 'Gerente'){
+                //     $type_user = 3;
+                // }
+                // else if($type_user == 'Aluno'){
+                //     $type_user = 3;
+                // }
+                
 
                 if (empty(trim($name))) {
                     $this->data['Erro'] = message()->warning('Não é possivel inserir espaços em brancos');
@@ -60,10 +75,14 @@ class UsersController extends Controller
                     if (is_email($email)) {
 
                         if (!$users->verifyEmail($email)) {
-                            $subject = "Login de Acesso";
+                //                             echo 'entrou aqui111';
+                // exit;
+                $subject = "Definição de senha";
                             $info = array();
                             $info['email'] = $email;
                             $info['hash'] = $hash_email;
+                            $info['title'] = 'Definição de senha';
+                            $info['url'] = 'Login/createPass';
 
                             ob_start();
                             $this->loadView('Email/invite', $info);

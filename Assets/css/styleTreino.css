@@ -69,9 +69,10 @@ body{
     margin: 2%;
 } */
 
-.pai{
-    margin-top: 25px;
-    
+.pai{ 
+    max-width: 1230px;
+    background-color: #e88f3f;
+    padding: 10px;
 }
 
 /* .treinos{

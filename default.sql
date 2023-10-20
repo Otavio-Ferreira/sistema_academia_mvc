@@ -157,6 +157,21 @@ CREATE TABLE `alunos` (
   `nivel` varchar(20),
 );
 
+CREATE TABLE `info_alunos` (
+  `id` int auto_increment primary key not null, 
+  `id_aluno` int, 
+  `idade` int,  
+  `endereco` varchar(100),  
+  `telefone` varchar(50),  
+  `mensalidade` double,  
+  `inscricao` date,  
+  `genero` varchar(20),
+  `situacao` varchar(20),
+  `personal` varchar(20),
+  `objetivo` varchar(20),
+  `nivel` varchar(20),
+);
+
 --
 -- Estrutura da tabela `avaliação`
 --

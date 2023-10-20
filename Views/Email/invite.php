@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h3>Quality Process</h3>
-    <strong>Acesse para criar uma senha: </strong> <a href="<?=BASE_URL.'Login/createPass/'.$hash;?>">Acessar</a>
+    <h3><?= $title; ?></h3>
+    <strong>Acesse para criar uma senha: </strong> <a href="<?=BASE_URL.$url.'/'.$hash;?>">Acessar</a>
 </body>
 </html>
