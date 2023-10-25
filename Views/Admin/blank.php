@@ -65,7 +65,7 @@
                 <?php foreach ($list_items as $list): ?>
                     <tr>
                         <td><?= $list['id']; ?></td>
-                        <td><?= $list['nome']; ?></td>
+                        <td><?= $list['name']; ?></td>
                         <td><?= $list['mensalidade']; ?></td>
                         <td><?= date('d/m', strtotime($list['inscricao'])); ?></td>
                         <td><?= $list['situacao']; ?></td>

@@ -52,7 +52,7 @@ INSERT INTO `hash_users` (`id`, `id_user`, `hash_user`, `situation`) VALUES
 --
 
 CREATE TABLE `permission_groups` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `params` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -64,7 +64,8 @@ CREATE TABLE `permission_groups` (
 INSERT INTO `permission_groups` (`id`, `name`, `params`) VALUES
 (1, 'Desenvolvimento', '1,2,3'),
 (2, 'Administrador', '1,2,3'),
-(3, 'Gerente', '1,2,3,4');
+(3, 'Gerente', '1,2,3,4'),
+(3, 'Aluno', '5');
 
 -- --------------------------------------------------------
 
@@ -86,7 +87,8 @@ INSERT INTO `permission_params` (`id`, `name`, `description`) VALUES
 (1, 'add_user', 'adicionar usuario'),
 (2, 'add_permission', 'adicionar permissão'),
 (3, 'view_dashboard', 'Ver DashBoard'),
-(4, 'add_params', 'Adicionar Parâmetro de Permissão');
+(4, 'add_params', 'Adicionar Parâmetro de Permissão'),
+(4, 'view_info', 'Ver informações do aluno');
 
 -- --------------------------------------------------------
 
@@ -158,7 +160,7 @@ CREATE TABLE `alunos` (
 );
 
 CREATE TABLE `info_alunos` (
-  `id` int auto_increment primary key not null, 
+  `id_info` int auto_increment primary key not null, 
   `id_aluno` int, 
   `idade` int,  
   `endereco` varchar(100),  

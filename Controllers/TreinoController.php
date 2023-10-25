@@ -12,14 +12,17 @@ class TreinoController extends Controller
         if (!$users->isLogged()) {
             header("Location: " . BASE_URL . "Login");
             exit;
-        } else {
-            if($_SESSION['TYPE'] == 'aluno') {
-				header('Location: '.BASE_URL.'HomeAluno');
-				exit;
-			}
-            $users->setLoggedUser();
-            $this->data['name'] = $users->getName();
         }
+        else{
+			$users->setLoggedUser();
+			$this->data["id_group"] = $users->getIdGroup();
+			$this->data["name"] = $users->getName();
+		}
+
+		if ($users->getIdGroup() == 4){
+			header('Location: '.BASE_URL.'HomeAluno');
+			exit;
+		}
     }
 
     public function index($id)

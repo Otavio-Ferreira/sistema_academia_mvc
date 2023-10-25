@@ -11,25 +11,29 @@ class HomeAlunoController extends Controller
       header('Location: ' . BASE_URL . 'Login');
       exit;
     }
-    else {
-      if($_SESSION['TYPE'] == 'admin') {
-				header('Location: '.BASE_URL.'Home');
-				exit;
-			}
-    }
+    else{
+			$user->setLoggedUser();
+			$this->data["name"] = $user->getName();
+			$this->data["id_group"] = $user->getIdGroup();
+		}
+
+		if ($user->getIdGroup() == 1){
+			header('Location: '.BASE_URL.'Perfil');
+			exit;
+		}
   }
 
   public function index()
   {
     $id = $_SESSION['sistema_academia'];
-    $this->data['nivel-1'] = 'Perfil';
+    $this->data['nivel-1'] = 'PerfilAluno';
     $this->data['CSS'] = customCSS('styleAluno');
 
-    $alunos = new Aluno();
+    $alunos = new Alunos();
 
-    $this->data['list_items'] = $alunos->getInfoAluno($id);
+    $this->data['list_items'] = $alunos->getAluno($id);
 
-    $this->loadTemplateAluno('Aluno/blank', $this->data);
+    $this->loadTemplateAdmin('Aluno/blank', $this->data);
   }
 
   public function getAvaliacao($data)
@@ -45,7 +49,7 @@ class HomeAlunoController extends Controller
     $this->data['list_avaliacao'] = $alunos->getAvaliacaoAlunoByData($id, $data);
     
     $this->data['CSS'] = customCSS('styleAluno');
-    $this->loadTemplateAluno('Aluno/showAvaliacao', $this->data);
+    $this->loadTemplateAdmin('Aluno/showAvaliacao', $this->data);
   }
 
   public function getInfoTreino($idTreino)
@@ -57,9 +61,9 @@ class HomeAlunoController extends Controller
 
 
     $treino = new Treino();
-    $aluno = new Aluno();
+    $aluno = new Alunos();
 
-    $this->data['list_items'] = $aluno->getInfoAluno($id);
+    $this->data['list_items'] = $aluno->getAluno($id);
     $this->data['list_info_treino'] = $treino->getInfoTreino($id);
     $this->data['list_treino'] = $treino->getTreino($idTreino);
 
@@ -74,6 +78,6 @@ class HomeAlunoController extends Controller
     $this->data['CSS'] = customCSS('styleShowTreinos');
 
 
-    $this->loadTemplateAluno('Aluno/showTreino', $this->data);
+    $this->loadTemplateAdmin('Aluno/showTreino', $this->data);
   }
 }

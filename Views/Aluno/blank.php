@@ -10,7 +10,7 @@
       </thead>
       <tbody>
         <tr>
-          <td><?= $list_items['nome']; ?></td>
+          <td><?= $list_items['name']; ?></td>
           <td><?= $list_items['idade'] ?></td>
           <td class="w-25">
             <!-- Button trigger modal -->
@@ -28,7 +28,7 @@
                   </div>
                   <div class="modal-body">
                     <ul class="list-group">
-                      <li class="list-group-item"><strong>Nome:</strong> <?= $list_items['nome']; ?></li>
+                      <li class="list-group-item"><strong>Nome:</strong> <?= $list_items['name']; ?></li>
                       <li class="list-group-item"><strong>Email:</strong> <?= $list_items['email']; ?></li>
                       <li class="list-group-item"><strong>Telefone:</strong> <?= $list_items['telefone']; ?></li>
                       <li class="list-group-item"><strong>Endereço:</strong> <?= $list_items['endereco']; ?></li>

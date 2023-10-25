@@ -9,10 +9,17 @@ class UsersController extends Controller
         if (!$user->isLogged()) {
             header('Location: ' . BASE_URL . 'Login');
             exit;
-        } else {
-            $user->setLoggedUser();
-            $this->data["name"] = $user->getName();
-        }
+        }  
+        else{
+			$user->setLoggedUser();
+			$this->data["id_group"] = $user->getIdGroup();
+			$this->data["name"] = $user->getName();
+		}
+
+		if ($user->getIdGroup() == 4){
+			header('Location: '.BASE_URL.'HomeAluno');
+			exit;
+		}
     }
 
     public function index($success = null)
@@ -75,7 +82,7 @@ class UsersController extends Controller
                     if (is_email($email)) {
 
                         if (!$users->verifyEmail($email)) {
-                //                             echo 'entrou aqui111';
+                // echo 'entrou aqui111';
                 // exit;
                 $subject = "Definição de senha";
                             $info = array();

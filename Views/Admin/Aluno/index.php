@@ -26,20 +26,32 @@
             <th scope="col">Inscrição</th>
             <th scope="col">Sexo</th>
             <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
           <?php foreach ($list_items as $list) : ?>
             <tr>
               <td><?= $list['id']; ?></td>
-              <td><?= $list['nome']; ?></td>
+              <td><?= $list['name']; ?></td>
               <td><?= $list['email']; ?></td>
               <td><?= $list['idade']; ?></td>
               <td><?= $list['endereco']; ?></td>
               <td><?= $list['telefone']; ?></td>
               <td><?= $list['mensalidade']; ?></td>
-              <td><?= date('d/m/Y', strtotime($list['inscricao'])); ?></td>
+              <td><?=(isset($list['inscricao']))? date('d/m/Y', strtotime($list['inscricao'])):''; ?></td>
               <td><?= $list['genero']; ?></td>
+              <td>
+                <a class='btn btn-light btn-sm' href="<?= BASE_URL; ?>Alunos/create/<?= $list['id']; ?>" title='Adicionar Informações do aluno'>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
+                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                  </svg>
+                </a>
+              </td>
               <td>
                 <a class='btn btn-light btn-sm' href="<?= BASE_URL; ?>Alunos/show/<?= $list['id']; ?>" title='Editar Aluno'>
                   <svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>
@@ -47,19 +59,25 @@
                     <path fill-rule='evenodd' d='M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z' />
                   </svg>
                 </a>
+              </td>
+              <td>
                 <a class='btn btn-light btn-sm' href='<?= BASE_URL; ?>Alunos/delete/<?= $list['id']; ?>' title='Deletar Aluno'>
                   <svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='currentColor' class='bi bi-trash3-fill' viewBox='0 0 16 16'>
                     <path d='M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z' />
                   </svg>
                 </a>
-                <a class='btn btn-light btn-sm' href='<?= BASE_URL; ?>Avaliacao/index/<?= $list['id'];?>' title='Avaliação Física'>
-                  <svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='currentColor' class='bi bi-clipboard2-heart' viewBox='0 0 16 16'>
-                    <path d='M10.058.501a.501.501 0 0 0-.5-.501h-2.98c-.276 0-.5.225-.5.501A.499.499 0 0 1 5.582 1a.497.497 0 0 0-.497.497V2a.5.5 0 0 0 .5.5h4.968a.5.5 0 0 0 .5-.5v-.503A.497.497 0 0 0 10.555 1a.499.499 0 0 1-.497-.499Z' />
+              </td>
+              <td>
+                <a class='btn btn-light btn-sm' href='<?= BASE_URL; ?>Avaliacao/index/<?= $list['id']; ?>' title='Avaliação Física'>
+                <svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='currentColor' class='bi bi-clipboard2-heart' viewBox='0 0 16 16'>
+                  <path d='M10.058.501a.501.501 0 0 0-.5-.501h-2.98c-.276 0-.5.225-.5.501A.499.499 0 0 1 5.582 1a.497.497 0 0 0-.497.497V2a.5.5 0 0 0 .5.5h4.968a.5.5 0 0 0 .5-.5v-.503A.497.497 0 0 0 10.555 1a.499.499 0 0 1-.497-.499Z' />
                     <path d='M3.605 2a.5.5 0 0 0-.5.5v12a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-12a.5.5 0 0 0-.5-.5h-.5a.5.5 0 0 1 0-1h.5a1.5 1.5 0 0 1 1.5 1.5v12a1.5 1.5 0 0 1-1.5 1.5h-9a1.5 1.5 0 0 1-1.5-1.5v-12a1.5 1.5 0 0 1 1.5-1.5h.5a.5.5 0 0 1 0 1h-.5Z' />
                     <path d='M8.068 6.482c1.656-1.673 5.795 1.254 0 5.018-5.795-3.764-1.656-6.69 0-5.018Z' />
                   </svg>
                 </a>
-                <a class='btn btn-light btn-sm' href='<?= BASE_URL; ?>Treino/index/<?= $list['id'];?>' title='Elaborar Treino'>
+              </td>
+              <td>
+                <a class='btn btn-light btn-sm' href='<?= BASE_URL; ?>Treino/index/<?= $list['id']; ?>' title='Elaborar Treino'>
                   <svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='currentColor' class='bi bi-journal-text' viewBox='0 0 16 16'>
                     <path d='M5 10.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z' />
                     <path d='M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z' />

@@ -28,31 +28,37 @@
         </button>
         <div class="offcanvas offcanvas-end bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
           <div class="offcanvas-header">
-            <h5 class="offcanvas-title titlearea" id="offcanvasDarkNavbarLabel">Usuário: <?= $viewData['name'];?></h5>
+            <h5 class="offcanvas-title titlearea" id="offcanvasDarkNavbarLabel">Usuário: <?= $viewData['name']?></h5>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
           </div>
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
               <li class="nav-item naveg">
-                <a class="nav-link  <?= (isset($viewData['nivel-1']) && $viewData['nivel-1'] == "Dashboard")?'active':''; ?>" aria-current="page" href="<?= BASE_URL.'Home';?>">DashBoard</a>
+                <a class="nav-link  <?= (isset($viewData['nivel-1']) && $viewData['nivel-1'] == "Dashboard")?'active':'';?><?= (isset($viewData['id_group']) && $viewData['id_group'] == 4)?'d-none':'';?>" aria-current="page" href="<?= BASE_URL.'Home';?>">DashBoard</a>
               </li>
               <li class="nav-item naveg">
-                <a class="nav-link <?= (isset($viewData['nivel-1']) && $viewData['nivel-1'] == "Alunos")?'active':''; ?>" href="<?= BASE_URL.'Alunos'?>">Alunos</a>
+                <a class="nav-link <?= (isset($viewData['nivel-1']) && $viewData['nivel-1'] == "Alunos")?'active':''; ?><?= (isset($viewData['id_group']) && $viewData['id_group'] == 4)?'d-none':'';?>" href="<?= BASE_URL.'Alunos'?>">Alunos</a>
               </li>
               <li class="nav-item naveg">
-                <a class="nav-link <?= (isset($viewData['nivel-1']) && $viewData['nivel-1'] == "CadAluno")?'active':''; ?>" href="<?= BASE_URL.'Alunos/create'?>">Cadastrar Aluno</a>
+                <a class="nav-link <?= (isset($viewData['nivel-1']) && $viewData['nivel-1'] == "Perfil")?'active':''; ?><?= (isset($viewData['id_group']) && $viewData['id_group'] == 4)?'d-none':'';?>" href="<?= BASE_URL.'Perfil'?>">Acessar Perfil</a>
               </li>
               <li class="nav-item naveg">
-                <a class="nav-link <?= (isset($viewData['nivel-1']) && $viewData['nivel-1'] == "Perfil")?'active':''; ?>" href="<?= BASE_URL.'Perfil'?>">Acessar Perfil</a>
+                <a class="nav-link <?= (isset($viewData['nivel-1']) && $viewData['nivel-1'] == "Configurações")?'active':''; ?><?= (isset($viewData['id_group']) && $viewData['id_group'] == 4)?'d-none':'';?>" href="<?= BASE_URL.'Users'?>">Configurações</a>
               </li>
               <li class="nav-item naveg">
-                <a class="nav-link <?= (isset($viewData['nivel-1']) && $viewData['nivel-1'] == "Configurações")?'active':''; ?>" href="<?= BASE_URL.'Users'?>">Configurações</a>
+                <a class="nav-link <?= (isset($viewData['nivel-1']) && $viewData['nivel-1'] == "Permissões")?'active':''; ?><?= (isset($viewData['id_group']) && $viewData['id_group'] == 4)?'d-none':'';?>" href="<?= BASE_URL.'Permissions'?>">Permissões</a>
               </li>
               <li class="nav-item naveg">
-                <a class="nav-link <?= (isset($viewData['nivel-1']) && $viewData['nivel-1'] == "Permissões")?'active':''; ?>" href="<?= BASE_URL.'Permissions'?>">Permissões</a>
+                <a class="nav-link <?= (isset($viewData['nivel-1']) && $viewData['nivel-1'] == "Paramêtros")?'active':''; ?><?= (isset($viewData['id_group']) && $viewData['id_group'] == 4)?'d-none':'';?>" href="<?= BASE_URL.'Permissions/addParams'?>">Paramêtros</a>
               </li>
               <li class="nav-item naveg">
-                <a class="nav-link <?= (isset($viewData['nivel-1']) && $viewData['nivel-1'] == "Paramêtros")?'active':''; ?>" href="<?= BASE_URL.'Permissions/addParams'?>">Paramêtros</a>
+                <a class="nav-link  <?= (isset($viewData['nivel-1']) && $viewData['nivel-1'] == "PerfilAluno")?'active':''; ?><?= (isset($viewData['id_group']) && $viewData['id_group'] == 3)?'d-none':'';?>" aria-current="page" href="<?= BASE_URL.'HomeAluno';?>">Perfil Aluno</a>
+              </li>
+              <li class="nav-item naveg">
+                <a class="nav-link  <?= (isset($viewData['nivel-1']) && $viewData['nivel-1'] == "Treino")?'active':''; ?><?= (isset($viewData['id_group']) && $viewData['id_group'] == 3)?'d-none':'';?>" aria-current="page" href="<?= BASE_URL.'HomeAluno/getInfoTreino/';?>">Treino</a>
+              </li>
+              <li class="nav-item naveg">
+                <a class="nav-link  <?= (isset($viewData['nivel-1']) && $viewData['nivel-1'] == "Avaliacao")?'active':''; ?><?= (isset($viewData['id_group']) && $viewData['id_group'] == 3)?'d-none':'';?>" aria-current="page" href="<?= BASE_URL.'HomeAluno/getAvaliacao/';?>">Avaliação Física</a>
               </li>
               <li class="nav-item naveg">
                 <a class="nav-link" href="<?= BASE_URL.'Login/logout';?>">Sair</a>
@@ -77,6 +83,7 @@
     <?php if(isset($viewData['JS'])){echo $viewData['JS'];}; ?>
     
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="<?= BASE_URL; ?>Assets/js/search.js"></script>
 </body>
 </html>

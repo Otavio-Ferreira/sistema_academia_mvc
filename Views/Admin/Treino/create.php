@@ -12,7 +12,7 @@
       </thead>
       <tbody>
         <tr>
-          <th scope="row"><?= $list_items['nome'] ?></th>
+          <th scope="row"><?= $list_items['name'] ?></th>
           <td><?= $list_items['idade'] ?></td>
           <td><?= $list_items['nivel'] ?></td>
           <td><?= $list_items['objetivo'] ?></td>

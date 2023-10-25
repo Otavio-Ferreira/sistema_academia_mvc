@@ -6,16 +6,19 @@ class PermissionsController extends Controller
 	public function __construct()
 	{
 		$user = new Users();
+
 		if (!$user->isLogged()) {
 			header('Location: ' . BASE_URL . 'Login');
 			exit;
-		} else {
-			if($_SESSION['TYPE'] == 'aluno') {
-				header('Location: '.BASE_URL.'HomeAluno');
-				exit;
-			}
+		}  else{
 			$user->setLoggedUser();
 			$this->data["name"] = $user->getName();
+			$this->data["id_group"] = $user->getIdGroup();
+		}
+
+		if ($user->getIdGroup() == 4){
+			header('Location: '.BASE_URL.'HomeAluno');
+			exit;
 		}
 	}
 

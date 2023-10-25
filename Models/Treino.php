@@ -49,7 +49,7 @@
 
         public function upAlunoInfoTreino($id, $personal, $objetivo, $level){
 
-            $sql = $this->db->prepare("UPDATE alunos SET personal = :personal, objetivo = :objetivo, nivel = :nivel WHERE id = :id;");
+            $sql = $this->db->prepare("UPDATE info_alunos SET personal = :personal, objetivo = :objetivo, nivel = :nivel WHERE id_aluno = :id;");
             $sql->bindValue(':personal', $personal);
             $sql->bindValue(':objetivo', $objetivo);
             $sql->bindValue(':nivel', $level);

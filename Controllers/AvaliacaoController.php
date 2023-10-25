@@ -12,15 +12,19 @@ class AvaliacaoController extends Controller
     if (!$users->isLogged()) {
       header("Location: " . BASE_URL . "Login");
       exit;
-    } else {
-      if ($_SESSION['TYPE'] == 'aluno') {
-        header('Location: ' . BASE_URL . 'HomeAluno');
-        exit;
-      }
-      $users->setLoggedUser();
-      $this->data['name'] = $users->getName();
-      $this->data['id'] = $users->getId();
     }
+    else{
+			$users->setLoggedUser();
+			$this->data["name"] = $users->getName();
+			$this->data["id_group"] = $users->getIdGroup();
+      $this->data['id'] = $users->getId();
+		}
+
+		if ($users->getIdGroup() == 4){
+			header('Location: '.BASE_URL.'HomeAluno');
+			exit;
+		}
+    
   }
 
   public function index($id)

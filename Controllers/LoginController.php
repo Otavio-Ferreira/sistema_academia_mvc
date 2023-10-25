@@ -23,24 +23,24 @@ class LoginController extends Controller
 					$data["alert"] = message()->warning("Por favor, informe um email válido.");
 				} else {
 
-					//Verificar se o usuario e aluno ou admin
-					if (isset($_POST["check"])) {
-						if (!$user->verifyEmailAluno($post["email"])) {
-							$data["alert"] = message()->warning("Email não encontrado em nossa base.");
-						} else {
-							if ($user->doLoginAluno($post["email"], $post["passwd"])) {
+					// //Verificar se o usuario e aluno ou admin
+					// if (isset($_POST["check"])) {
+					// 	if (!$user->verifyEmailAluno($post["email"])) {
+					// 		$data["alert"] = message()->warning("Email não encontrado em nossa base.");
+					// 	} else {
+					// 		if ($user->doLoginAluno($post["email"], $post["passwd"])) {
 
-								$_SESSION['TYPE'] = 'aluno';
+					// 			$_SESSION['TYPE'] = 'aluno';
 
-								header("Location: " . BASE_URL . "HomeAluno/index");
-								exit;
-							} else {
-								$data["alert"] = message()->error("Senha inválida.");
-							}
-						}
-						$this->loadView("Login/index", $data);
-						exit;
-					}
+					// 			header("Location: " . BASE_URL . "HomeAluno/index");
+					// 			exit;
+					// 		} else {
+					// 			$data["alert"] = message()->error("Senha inválida.");
+					// 		}
+					// 	}
+					// 	$this->loadView("Login/index", $data);
+					// 	exit;
+					// }
 
 					//se for um email verifico se o mesmo está salvo em nossa base de dados
 					if (!$user->verifyEmail($post["email"])) {
@@ -168,7 +168,7 @@ class LoginController extends Controller
 				$user->createPass($pass, $id_user);
 
 				$hash->InactiveHash($id_user, $hash_user);
-				header('Location: ' . BASE_URL . 'Login');
+				header('Location: ' . BASE_URL . 'Login/index');
 				exit;
 			} else {
 				$data["alert"] = message()->warning("Por favor, informe a mesma senha nos dois campos.");

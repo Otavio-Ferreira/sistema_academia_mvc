@@ -2,7 +2,7 @@
   <div class="container p-2 rounded-top conteinerForm">
     <div class="mb-3">
       <label for="nome" class="form-label">Nome:</label>
-      <input type="text" class="form-control inputCaixa1" name="nome" id="nome" value="<?= $list_items['nome'];?>" readonly>
+      <input type="text" class="form-control inputCaixa1" name="nome" id="nome" value="<?= $list_items['name'];?>" readonly>
     </div>
     <div class="mb-3">
       <label for="idade" class="form-label">Idade:</label>

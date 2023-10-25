@@ -85,6 +85,17 @@ Class Users extends Model{
 		return $data;
 	}
 
+	public function getListAlunos(){
+		$data = array();
+		$sql = $this->db->prepare("SELECT users.id, users.name, users.email, users.id_group, users.type, users.situation, permission_groups.name AS name_group FROM users INNER JOIN permission_groups ON permission_groups.id = users.id_group WHERE id_group = 4");
+		$sql->execute();
+
+		if($sql->rowCount()>0){
+			$data = $sql->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return $data;
+	}
+
 	public function doLogin($email, $password){
 		$sql = $this->db->prepare("SELECT id, password FROM users WHERE email = :email");
 		$sql->bindValue(":email", $email);
@@ -136,6 +147,10 @@ Class Users extends Model{
 	}
 	public function getTypeUser(){
 		return $this->userInfo["type"];
+	}
+	
+	public function getIdGroup(){
+		return $this->userInfo["id_group"];
 	}
 
 	public function getId(){

@@ -2,7 +2,7 @@
   <form action="<?= BASE_URL; ?>Treino/updateInfoTreino/<?= $list_items['id'] ?>" method="post" class="container d-flex flex-wrap justify-content-center pai rounded">
     <div class="infor">
       <div class="first">
-        <input type="text" class="form-control" id="floatingInputAluno" placeholder="Aluno" name="aluno" placeholder="Aluno" value="<?= $list_items['nome'] ?>" readonly>
+        <input type="text" class="form-control" id="floatingInputAluno" placeholder="Aluno" name="aluno" placeholder="Aluno" value="<?= $list_items['name'] ?>" readonly>
         <input type="text" class="form-control" id="floatingInputPersonal" name="personal" placeholder="Personal" value="<?= $list_items['personal'] ?>" required>
       </div>
       <div class="second">

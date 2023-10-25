@@ -12,14 +12,16 @@ class PerfilController extends Controller{
             header("Location: ". BASE_URL. "Login");
             exit;
         }else{
-            if($_SESSION['TYPE'] == 'aluno') {
-				header('Location: '.BASE_URL.'HomeAluno');
-				exit;
-			}
-            $users->setLoggedUser();
-            $this->data['name'] = $users->getName();
-            $this->data['id'] = $users->getId();
-        }
+			$users->setLoggedUser();
+			$this->data["name"] = $users->getName();
+			$this->data["id"] = $users->getId();
+			$this->data["id_group"] = $users->getIdGroup();
+		}
+
+		if ($users->getIdGroup() == 4){
+			header('Location: '.BASE_URL.'HomeAluno');
+			exit;
+		}
     }
 
     public function index(){

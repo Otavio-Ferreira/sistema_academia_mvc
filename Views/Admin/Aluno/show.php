@@ -3,7 +3,7 @@
     <div class="container p-2 rounded-top conteinerForm">
       <div class="mb-3">
         <label for="nome" class="form-label">Nome:</label>
-        <input type="text" class="form-control" name="nome" id="nome" aria-describedby="emailHelp" value="<?= $list_items['nome'] ?>" required>
+        <input type="text" class="form-control" name="nome" id="nome" aria-describedby="emailHelp" value="<?= $list_items['name'] ?>" required>
       </div>
       <div class="mb-3">
         <label for="email" class="form-label">Email:</label>

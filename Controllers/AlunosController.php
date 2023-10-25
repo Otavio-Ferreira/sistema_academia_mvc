@@ -4,7 +4,6 @@ class AlunosController extends Controller
 {
 
     private $data = array();
-    //private $alunos;
     private $alunos;
 
     public function __construct()
@@ -15,15 +14,18 @@ class AlunosController extends Controller
         if (!$users->isLogged()) {
             header("Location: " . BASE_URL . "Login");
             exit;
-        } else {
-            if($_SESSION['TYPE'] == 'aluno') {
-				header('Location: '.BASE_URL.'HomeAluno');
-				exit;
-			}
-            $users->setLoggedUser();
-            $this->data['name'] = $users->getName();
-            $this->alunos = new Alunos();
         }
+        else{
+			$users->setLoggedUser();
+			$this->data["name"] = $users->getName();
+			$this->data["id_group"] = $users->getIdGroup();
+            $this->alunos = new Alunos();
+		}
+
+		if ($users->getIdGroup() == 4){
+			header('Location: '.BASE_URL.'HomeAluno');
+			exit;
+		}
     }
 
     public function index()
@@ -31,30 +33,40 @@ class AlunosController extends Controller
 
         $this->data['nivel-1'] = "Aluno";
 
-        if(isset($_POST['searchValue']) && !empty($_POST['searchValue'])){
+        if (isset($_POST['searchValue']) && !empty($_POST['searchValue'])) {
             $searchValue = addslashes($_POST['searchValue']);
 
             $this->data['list_items'] = $this->alunos->getAlunoFilter($searchValue);
-
-        }
-        else{    
+        } else {
             $this->data['list_items'] = $this->alunos->getAlunos();
         }
-        
+
 
         $this->data['CSS'] = customCSS('styleAluno');
         $this->data['JS'] = customJS('search');
-        
+
 
         $this->loadTemplateAdmin('Admin/Aluno/index', $this->data);
     }
 
-    public function create()
+    public function create($id)
     {
-        $this->data['nivel-1'] = "CadAluno";
+        $id = addslashes($id);
 
+        if (empty($id) && !is_int($id)) {
+            header('Location: ' . BASE_URL . 'Alunos');
+            exit;
+        }
 
-        $this->data['JS'] = customJS('eye');
+        if($this->alunos->getVerify($id)){
+            header('Location: '.BASE_URL.'Alunos');
+            exit;
+        }
+
+        $users = new Users();
+
+        $this->data['list_items'] = $users->getById($id);
+
         $this->data['CSS'] = customCSS('styleCadAluno');
 
         $this->loadTemplateAdmin('Admin/Aluno/create', $this->data);
@@ -62,8 +74,6 @@ class AlunosController extends Controller
 
     public function show($id)
     {
-        $this->data['nivel-1'] = "CadAluno";
-
         $id = addslashes($id);
 
         if (empty($id) && !is_int($id)) {
@@ -87,8 +97,14 @@ class AlunosController extends Controller
     }
 
 
-    public function store()
+    public function store($id)
     {
+        $id = addslashes($id);
+
+        if (empty($id) && !is_int($id)) {
+            header('Location: ' . BASE_URL . 'Alunos');
+            exit;
+        }
 
         if (
             isset($_POST['nome']) && !empty($_POST['nome']) &&
@@ -99,12 +115,9 @@ class AlunosController extends Controller
             isset($_POST['telefone']) && !empty($_POST['telefone']) &&
             isset($_POST['mensalidade']) && !empty($_POST['mensalidade']) &&
             isset($_POST['inscricao']) && !empty($_POST['inscricao']) &&
-            isset($_POST['genero']) && !empty($_POST['genero']) &&
-            isset($_POST['senha']) && !empty($_POST['senha'])
+            isset($_POST['genero']) && !empty($_POST['genero'])
         ) {
 
-            $nome = addslashes($_POST['nome']);
-            $email = addslashes($_POST['email']);
             $idade = addslashes($_POST['idade']);
             $endereco = addslashes($_POST['endereco']);
             $situacao = addslashes($_POST['situacao']);
@@ -114,10 +127,13 @@ class AlunosController extends Controller
             $genero = addslashes($_POST['genero']);
             $senha = addslashes($_POST['senha']);
 
-            $this->alunos->setAluno($nome, $email, $idade, $endereco, $situacao, $telefone, $mensalidade, $inscricao, $genero, $senha);
+            $this->alunos->setAluno($id, $idade, $endereco, $situacao, $telefone, $mensalidade, $inscricao, $genero, $senha);
             header('Location: ' . BASE_URL . 'Alunos');
             exit;
         }
+
+        header('Location: ' . BASE_URL . 'Alunos');
+        exit;
     }
 
     public function update($id)
@@ -160,7 +176,7 @@ class AlunosController extends Controller
     public function delete($id)
     {
         $id = addslashes($id);
-        if(empty($id) && !is_int($id)){
+        if (empty($id) && !is_int($id)) {
             header('Location: ' . BASE_URL . 'Alunos');
             exit;
         }
