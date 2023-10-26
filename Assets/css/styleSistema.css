@@ -1,52 +1,71 @@
-*{
+/* CSS Dashboard */
+
+body {
+    max-width: 100%;
+    background-color: #f5f5f5;
+}
+
+* {
     padding: 0%;
     margin: 0%;
 }
 
-.logozinha{
-    width: 150px;
-    border-radius: 10px;
+
+.nav-mobile {
+    display: none;
 }
 
-body{
-    width: 100%;
-    background-color: #f5f5f5;
+.nav-desk {
+    display: flex;
+}
+
+.indicadores-div {
+    background-color: #a8b0bf;
+    width: 90%;
+}
+
+.card-ind{
+    width: 300px;
+    margin: 10px;
 }
 
 
-.manual-btn{
+/* CSS controle de alunos */
+
+
+.manual-btn {
     transition: 1s;
 }
 
-.manual-btn:not(:last-child){
+.manual-btn:not(:last-child) {
     margin-right: 40px;
 }
 
-.manual-btn:hover{
+.manual-btn:hover {
     background-color: white;
 }
 
-#radio1:checked ~ .first{
+#radio1:checked~.first {
     margin-left: 0;
 }
 
-#radio2:checked ~ .first{
+#radio2:checked~.first {
     margin-left: -25%;
 }
 
-#radio3:checked ~ .first{
+#radio3:checked~.first {
     margin-left: -50%;
 }
 
-#radio4:checked ~ .first{
+#radio4:checked~.first {
     margin-left: -75%;
 }
 
-.navegation-auto div{
+.navegation-auto div {
     transition: 1s;
 }
 
-.naveg{
+.naveg {
     background-color: #E88F3F;
     border-radius: 15px;
     text-align: center;
@@ -54,16 +73,16 @@ body{
     margin: 5px auto;
 }
 
-.naveg a{
+.naveg a {
     color: black;
     font-weight: bold;
 }
 
-.caixanav{
+.caixanav {
     background-color: rgb(29, 27, 27);
 }
 
-#subname{
+#subname {
     font-size: 20px;
     color: #E88F3F;
     font-weight: bold;
@@ -72,15 +91,15 @@ body{
     animation-duration: 2s;
 }
 
-#othek{
+#othek {
     color: white;
 }
 
-.titlearea{
+.titlearea {
     color: white;
 }
 
-#reconhecimento{
+#reconhecimento {
     padding: 10px;
     background-color: #E88F3F;
     font-weight: bold;
@@ -89,21 +108,16 @@ body{
     cursor: pointer;
 }
 
-#reconhecimento p{
+#reconhecimento p {
     animation: slideInLeft;
     animation-duration: 2s;
 }
 
-#controle{
-    margin: 20px;
-    text-align: center;
-    color: black;
-    font-weight: bold;
-}
+
 
 /*barra*/
 
-.box-search{
+.box-search {
     display: flex;
     justify-content: center;
     gap: .1%;
@@ -111,16 +125,16 @@ body{
 }
 
 
-.bt{
+.bt {
     background-color: #E88F3F;
 }
 
-table{
+table {
     animation: fadeIn;
     animation-duration: 2s;
 }
 
-.relatorio{
+.relatorio {
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
     font-size: 20px;
@@ -128,7 +142,7 @@ table{
     font-weight: bold;
 }
 
-.ConteinerRelat{
+.ConteinerRelat {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -136,39 +150,42 @@ table{
     margin-top: 30px;
 }
 
-.cabecalho{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-content: space-around;
-    background-color: #a8b0bf;
-    margin-top: 30px;
-    width: 90%;
-}
 
-.inputs{
+
+.inputs {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     width: 200px;
 }
 
-.inputsRelat{
+.inputsRelat {
     text-align: center;
     font-weight: bold;
     font-size: 20px;
 }
 
-label{
+label {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: #efefef;
 }
 
-.corpo{
+.corpo {
     width: 90%;
     background-color: #a8b0bf;
     overflow: hidden;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0);
     margin-top: 30px;
-    
+
+}
+
+@media(max-width: 600px) {
+    .nav-mobile {
+        display: flex;
+    }
+
+    .nav-desk {
+        display: none;
+    }
+
 }

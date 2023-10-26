@@ -31,7 +31,7 @@ class AlunosController extends Controller
     public function index()
     {
 
-        $this->data['nivel-1'] = "Aluno";
+        $this->data['nivel-1'] = "Alunos";
 
         if (isset($_POST['searchValue']) && !empty($_POST['searchValue'])) {
             $searchValue = addslashes($_POST['searchValue']);

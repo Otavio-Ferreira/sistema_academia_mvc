@@ -42,7 +42,7 @@ class HomeController extends Controller{
 				$this->data['list_items'] = $alunos->getAlunos();
 			
 			}
-
+			
 			$this->data['total_registros'] = $home->getTotalRegistros();
 			$this->data['total_pendencias'] = $home->getTotalPendencias();
 			$this->data['total_pagos'] = $home->getTotalPagos();
