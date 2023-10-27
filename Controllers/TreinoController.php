@@ -27,6 +27,8 @@ class TreinoController extends Controller
 
     public function index($id)
     {
+        $this->data['nivel-1'] = 'Alunos';
+        $this->data['nivel-2'] = 'Treino do aluno';
 
         $id = addslashes($id);
 
@@ -49,6 +51,8 @@ class TreinoController extends Controller
 
     public function show($idAluno, $idTreino)
     {
+        $this->data['nivel-1'] = 'Alunos';
+        $this->data['nivel-2'] = 'Treino do aluno';
         
         $idAluno = addslashes($idAluno);
         $idTreino = addslashes($idTreino);

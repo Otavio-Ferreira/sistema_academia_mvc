@@ -24,10 +24,14 @@ body {
     width: 90%;
 }
 
-.card-ind{
-    width: 300px;
+.card-ind {
+    width: 30%;
     margin: 10px;
 }
+/* 
+table {
+    min-width: 800px;
+} */
 
 
 /* CSS controle de alunos */
@@ -129,11 +133,6 @@ body {
     background-color: #E88F3F;
 }
 
-table {
-    animation: fadeIn;
-    animation-duration: 2s;
-}
-
 .relatorio {
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
@@ -176,10 +175,11 @@ label {
     overflow: hidden;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0);
     margin-top: 30px;
-
 }
 
-@media(max-width: 600px) {
+
+
+@media(max-width: 1200px) {
     .nav-mobile {
         display: flex;
     }
@@ -188,4 +188,26 @@ label {
         display: none;
     }
 
+    .nivel {
+        display: none;
+    }
+}
+
+@media(max-width: 800px) {
+
+    .card-ind {
+        width: 45%;
+    }
+
+    .hidden{
+        display: none;
+    }
+}
+
+@media(max-width:550px) {
+    .card-ind {
+        width: 100%;
+        height: 100px;
+        margin: 5px;
+    }
 }

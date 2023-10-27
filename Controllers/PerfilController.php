@@ -25,9 +25,11 @@ class PerfilController extends Controller{
     }
 
     public function index(){
+        $this->data['nivel-1'] = "Perfil";
+        $this->data['nivel-2'] = 'Perfil'; 
+
         $id = $this->data['id'];
         
-        $this->data['nivel-1'] = "Perfil";
         $this->data['CSS'] = customCSS('stylePerfil');
         $this->data['JS'] = '<script src="' . BASE_URL . 'Assets/js/eye.js" type="text/javascript"></script>';
 

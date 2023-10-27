@@ -89,7 +89,7 @@ class Alunos extends Model
 
     public function getAlunosBySituation($situacao){
         $data = array();
-        $sql = $this->db->prepare("SELECT * FROM info_alunos WHERE situacao = :situacao");
+        $sql = $this->db->prepare("SELECT * FROM users AS u LEFT JOIN info_alunos AS a ON u.id = a.id_aluno WHERE situacao = :situacao AND id_group = 4");
         $sql->bindValue(':situacao', $situacao);
         $sql->execute();
 
@@ -102,7 +102,7 @@ class Alunos extends Model
 
     public function getVerify($id)
     {
-        $sql = $this->db->prepare("SELECT * FROM users AS u LEFT JOIN info_alunos AS a ON u.id = a.id_aluno WHERE id = :id");
+        $sql = $this->db->prepare("SELECT * FROM info_alunos WHERE id_aluno = :id");
         $sql->bindValue(':id', $id);
         $sql->execute();
 

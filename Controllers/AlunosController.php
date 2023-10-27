@@ -14,24 +14,24 @@ class AlunosController extends Controller
         if (!$users->isLogged()) {
             header("Location: " . BASE_URL . "Login");
             exit;
-        }
-        else{
-			$users->setLoggedUser();
-			$this->data["name"] = $users->getName();
-			$this->data["id_group"] = $users->getIdGroup();
+        } else {
+            $users->setLoggedUser();
+            $this->data["name"] = $users->getName();
+            $this->data["id_group"] = $users->getIdGroup();
             $this->alunos = new Alunos();
-		}
+        }
 
-		if ($users->getIdGroup() == 4){
-			header('Location: '.BASE_URL.'HomeAluno');
-			exit;
-		}
+        if ($users->getIdGroup() == 4) {
+            header('Location: ' . BASE_URL . 'HomeAluno');
+            exit;
+        }
     }
 
     public function index()
     {
 
         $this->data['nivel-1'] = "Alunos";
+        $this->data['nivel-2'] = "Alunos";
 
         if (isset($_POST['searchValue']) && !empty($_POST['searchValue'])) {
             $searchValue = addslashes($_POST['searchValue']);
@@ -44,7 +44,23 @@ class AlunosController extends Controller
 
         $this->data['CSS'] = customCSS('styleAluno');
         $this->data['JS'] = customJS('search');
+        $this->data['JS'] .= customJS('datatables');
 
+        $this->data['JS'] .= '
+		<script>
+			document.addEventListener("DOMContentLoaded", function() {
+				// Datatables Responsive
+				$("#example2").DataTable({
+                    "lengthChange": false,
+                    "searching": false,
+                    "ordering": true,
+                    "info": true,
+                    "autoWidth": false,
+                    "responsive": true,
+				});
+                
+			});
+		</script>';
 
         $this->loadTemplateAdmin('Admin/Aluno/index', $this->data);
     }
@@ -58,14 +74,18 @@ class AlunosController extends Controller
             exit;
         }
 
-        if($this->alunos->getVerify($id)){
-            header('Location: '.BASE_URL.'Alunos');
+        // $tt = $this->alunos->getVerify($id); 
+        // echo $tt;
+        // exit; 
+
+        if ($this->alunos->getVerify($id)) {
+            header('Location: ' . BASE_URL . 'Alunos');
             exit;
         }
 
-        $users = new Users();
+        $alunos = new Alunos();
 
-        $this->data['list_items'] = $users->getById($id);
+        $this->data['list_items'] = $alunos->getAluno($id);
 
         $this->data['CSS'] = customCSS('styleCadAluno');
 
@@ -74,6 +94,9 @@ class AlunosController extends Controller
 
     public function show($id)
     {
+        $this->data['nivel-1'] = 'Alunos';
+        $this->data['nivel-2'] = 'Editar aluno';
+        
         $id = addslashes($id);
 
         if (empty($id) && !is_int($id)) {

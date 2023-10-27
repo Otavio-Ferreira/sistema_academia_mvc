@@ -1,5 +1,48 @@
 <main class="m-auto">
-  <form action="<?= BASE_URL; ?>Alunos/update/<?= $list_items['id']; ?>" method="POST">
+  <form action="<?= BASE_URL; ?>Alunos/update/<?= $list_items['id']; ?>" method="POST" class="ms-5 me-5">
+    <div class="d-flex mt-3">
+      <i class="bi bi-person-square fs-1 pe-3 text-primary"></i>
+      <p class="fs-1 text-primary"><?= $list_items['name'] ?></p>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-floating mt-3">
+          <input type="text" class="form-control" name="nome" id="nome" value="<?= $list_items['name']; ?>">
+          <label for="nome">Nome</label>
+        </div>
+        <div class="form-floating mt-3">
+          <input type="text" class="form-control" name="email" id="email" value="<?= $list_items['email']; ?>">
+          <label for="email">Email</label>
+        </div>
+        <div class="form-floating mt-3">
+          <input type="text" class="form-control" name="email" id="email" value="<?= $list_items['idade']; ?>">
+          <label for="email">Idade</label>
+        </div>
+        <div class="form-floating mt-3">
+          <input type="text" class="form-control" name="email" id="email" value="<?= $list_items['endereco']; ?>">
+          <label for="email">Endereço</label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-floating mt-3">
+          <input type="text" class="form-control" name="grupo" id="grupo" value="<?= $list_items['telefone'];?>">
+          <label for="grupo">Grupo</label>
+        </div>
+        <div class="form-floating mt-3">
+          <input type="text" class="form-control" name="situacao" id="situacao" value="<?= $list_items['mensalidade'];?>">
+          <label for="situacao">Situação</label>
+        </div>
+        <div class="form-floating mt-3">
+          <input type="text" class="form-control" name="situacao" id="situacao" value="<?= $list_items['inscricao'];?>">
+          <label for="situacao">Situação</label>
+        </div>
+      </div>
+    </div>
+    <div>
+      <input class="btn btn-primary fs-5 mt-4" type="submit" id="update" name="update" value="Salvar mudanças">
+    </div>
+  </form>
+  <!-- <form action="<?= BASE_URL; ?>Alunos/update/<?= $list_items['id']; ?>" method="POST">
     <div class="container p-2 rounded-top conteinerForm">
       <div class="mb-3">
         <label for="nome" class="form-label">Nome:</label>
@@ -65,10 +108,10 @@
                 </svg>
                 </span>
                 
-              </div> -->
+              </div> 
       <div class="d-flex justify-content-center mt-5">
         <input type="submit" name="submit" id="submit" class="btn bg-white" style="color: #E3813D" value="Atualizar Aluno">
       </div>
     </div>
-  </form>
+  </form> -->
 </main>

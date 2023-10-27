@@ -26,6 +26,7 @@ class HomeController extends Controller{
 
     public function index(){
 			$this->data['nivel-1'] = 'Dashboard';
+			$this->data['nivel-2'] = 'Dashboard';
 
 			$alunos = new Alunos();
 			$home = new Home();
@@ -54,6 +55,8 @@ class HomeController extends Controller{
 
 		public function getAlunoBySituation($situacao){
 			$this->data['nivel-1'] = 'Dashboard';
+			$this->data['nivel-2'] = 'Dashboard';
+
 
 			$home = new Home();
 			$alunos = new Alunos();

@@ -1,6 +1,6 @@
-table{
-  width: 600px;
-}
+/* table{
+  min-width: 800px;
+} */
 
 .boxInformacoes{
   width: 480px;
@@ -24,3 +24,5 @@ table{
 label{
   color: black;
 }
+
+

@@ -29,6 +29,8 @@ class AvaliacaoController extends Controller
 
   public function index($id)
   {
+    $this->data['nivel-1'] = 'Alunos';
+    $this->data['nivel-2'] = 'Avaliação Física';
 
     $id = addslashes($id);
 

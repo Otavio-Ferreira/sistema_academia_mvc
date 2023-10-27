@@ -42,7 +42,9 @@ class Home extends Model
     }
 
     public function getBalancoAtual(){
-      $sql = $this->db->prepare("SELECT SUM(mensalidade) as balancoAtual FROM info_alunos WHERE situacao LIKE 'Pago'");
+      $sql = $this->db->prepare("SELECT SUM(mensalidade) as balancoAtual FROM info_alunos
+      
+       WHERE situacao LIKE 'Pago'");
       $sql->execute();
 
       $data = $sql->fetch(PDO::FETCH_ASSOC);

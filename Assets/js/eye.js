@@ -24,3 +24,29 @@ eye2.onclick = () =>
         senha2.type = 'password'
     }
 }
+
+
+function teste(v){
+    var campo1 = document.getElementById('div1');
+    var campo2 = document.getElementById('div2');
+
+    var link1 = document.getElementById('link1')
+    var link2 = document.getElementById('link2')
+    
+    if (v == 1){
+        campo1.classList.remove("d-none");
+        campo2.classList.add("d-none");
+        link1.classList.add("active");
+        link2.classList.remove("active");
+        link1.classList.add("fw-bold");
+        link2.classList.remove("fw-bold");
+    }
+    else if (v == 2){
+        campo2.classList.remove("d-none");
+        campo1.classList.add("d-none");
+        link1.classList.remove("active");
+        link2.classList.add("active");
+        link1.classList.remove("fw-bold");
+        link2.classList.add("fw-bold");
+    }
+}
