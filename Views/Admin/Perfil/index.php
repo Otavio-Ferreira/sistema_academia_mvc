@@ -16,7 +16,7 @@
           </li>
         </ul>
       </div>
-      <div>
+      <div class="w-100">
         <form action="<?= BASE_URL; ?>Perfil/updateAdmin/<?= $list_items['id'] ?>" method="POST" id="div1">
           <div class="d-flex mt-3">
             <i class="bi bi-person-square fs-1 pe-3 text-primary"></i>

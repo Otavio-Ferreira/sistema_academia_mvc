@@ -24,7 +24,6 @@ class UsersController extends Controller
 
     public function index($success = null)
     {
-        $this->data['title'] = "Quality Juá";
         $this->data['nivel-1'] = 'Configurações';
         $this->data['nivel-2'] = "Usuarios";
 
@@ -214,4 +213,100 @@ class UsersController extends Controller
             redirect('Home');
         }
     }
+
+    public function addUserAluno(){
+
+        echo 'gay';
+        exit;
+        $users = new Users();
+        $users->setLoggeduser();
+
+        // verifying if the users have access permission
+        if ($users->hasPermission('add_user')) {
+
+            $email_send = new Email();
+            $hashUsers = new HashUsers();
+
+
+            if (!empty($success)) {
+                if ($success == 'new_user') {
+                    $this->data['success'] = message()->success('Usuário cadastrado com sucesso! peça para verificar o e-mail/caixa de spam para cadastrar uma nova senha. :)');
+                } elseif ($success == 'edit_user') {
+                    $this->data['success'] = message()->success('Usuário editado com sucesso! :)');
+                }
+            }
+
+
+            // Adicionando um usuario
+            if (isset($_POST['name']) && !empty($_POST['name']) && isset($_POST['email']) && !empty($_POST['email'])) {
+                $name = addslashes($_POST['name']);
+                $email = addslashes($_POST['email']);
+                $id_group = 4;
+                $type_user = addslashes($_POST['type_user']);
+                $hash_email = md5($email);
+
+
+                if ($type_user == 'adm') {  
+                    $type_user = 1;
+                } 
+                else {
+                    $type_user = 0;
+                }
+                // if ($type_user == 'Desenvolvimento') {  
+                //     $type_user = 1;
+                // } 
+                // else if($type_user == 'Administrador'){
+                //     $type_user = 2;
+                // }
+                // else if($type_user == 'Gerente'){
+                //     $type_user = 3;
+                // }
+                // else if($type_user == 'Aluno'){
+                //     $type_user = 3;
+                // }
+                
+
+                if (empty(trim($name))) {
+                    $this->data['Erro'] = message()->warning('Não é possivel inserir espaços em brancos');
+                } else {
+                    if (is_email($email)) {
+
+                        if (!$users->verifyEmail($email)) {
+                // echo 'entrou aqui111';
+                // exit;
+                $subject = "Definição de senha";
+                            $info = array();
+                            $info['email'] = $email;
+                            $info['hash'] = $hash_email;
+                            $info['title'] = 'Definição de senha';
+                            $info['url'] = 'Login/createPass';
+
+                            ob_start();
+                            $this->loadView('Email/invite', $info);
+                            $message = ob_get_clean();
+
+                            $email_send->bootstrap($subject, $message, $email, $name);
+
+                            if ($email_send->send()) {
+                                $id_user = $users->addUser($name, $email, $type_user, $id_group);
+                                // adicionando o hash
+                                $hashUsers->addHashUser($id_user, $hash_email);
+
+                                $success = 'new_user';
+                                header('Location: ' . BASE_URL . 'Users/index/' . $success);
+                                exit;
+                            } else {
+                                $this->data["Erro"] = message()->warning("Ops, Verifique se o e-mail esta correto.");
+                            }
+                        } else {
+                            $this->data["Erro"] = message()->warning("Ops, esse e-mail ja esta em uso.");
+                        }
+                    } else {
+                        $this->data["Erro"] = message()->warning("Por favor, informe um email válido.");
+                    }
+                }
+            }
+    }
+}
+
 }

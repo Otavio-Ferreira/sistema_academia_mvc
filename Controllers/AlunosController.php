@@ -67,17 +67,16 @@ class AlunosController extends Controller
 
     public function create($id)
     {
+        $this->data['nivel-1'] = "Alunos";
+        $this->data['nivel-2'] = "Adicionar mais informações";
+
         $id = addslashes($id);
 
         if (empty($id) && !is_int($id)) {
             header('Location: ' . BASE_URL . 'Alunos');
             exit;
         }
-
-        // $tt = $this->alunos->getVerify($id); 
-        // echo $tt;
-        // exit; 
-
+        
         if ($this->alunos->getVerify($id)) {
             header('Location: ' . BASE_URL . 'Alunos');
             exit;
@@ -192,6 +191,11 @@ class AlunosController extends Controller
             $this->alunos->upAluno($id, $nome, $email, $idade, $endereco, $situacao, $telefone, $mensalidade, $inscricao, $genero);
 
             header('Location: ' . BASE_URL . 'Alunos');
+            exit;
+        }
+
+        else{
+            header('Location: ' . BASE_URL . 'Alunos/show/'.$id);
             exit;
         }
     }

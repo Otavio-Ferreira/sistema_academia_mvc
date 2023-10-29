@@ -7,14 +7,48 @@
           <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
         </svg>
       </button>
+      <a data-bs-toggle="modal" data-bs-target="#addUser" class="btn btn-primary fw-bold ms-1">Novo Aluno</a>
+      <!-- MODAL ADICIONAR USUARIO -->
+      <div class="modal fade" id="addUser" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              Adicionar Usuário
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form method="POST" action="<?= BASE_URL;?>Users/AddUserAluno">
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-md-12 mb-3">
+                    <div class="form-group">
+                      <label for="name" class="form-label">Nome</label>
+                      <input type="text" id="name" name="name" class="form-control" placeholder="Ex: Joao" required>
+                    </div>
+                  </div>
+                  <div class="col-md-12 mb-3">
+                    <div class="form-group">
+                      <label for="email" class="form-label">E-mail</label>
+                      <input type="text" id="email" name="email" class="form-control" placeholder="Ex: Joao@gmail.com" required>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer d-flex justify-content-end">
+                <button type="button" class="btn btn-secondary w-25" data-bs-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-info w-25">Adicionar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   </form>
 </section>
 <section class="m-5">
   <div class=" p-2 bg-dark-subtle rounded shadow">
     <!-- class="table  table-striped table-bordered bg-white table-hover tabela" id="datatables-responsive" style="width: 100%;" role="grid" aria-describedby="datatables-reponsive_info -->
-    <!-- <table class="table  table-striped table-bordered bg-white table-hover m-auto tabela"> -->
-    <table id="example2" class="table table-bordered table-hover dataTable dtr-inline collapsed" aria-describedby="example2_info">
+    <table class="table  table-striped table-bordered bg-white table-hover m-auto tabela">
+      <!-- <table id="example2" class="table table-bordered table-hover dataTable dtr-inline collapsed" aria-describedby="example2_info"> -->
       <thead>
         <tr>
           <th>Nome</th>
@@ -32,13 +66,13 @@
             <td class="hidden"><?= $list['telefone']; ?></td>
             <td>
               <!-- Button trigger modal -->
-              <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop<?= $list['id']; ?>">
                 Mais
                 <i class="bi bi-plus-lg"></i>
               </button>
 
               <!-- Modal -->
-              <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal fade" id="staticBackdrop<?= $list['id']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                   <div class="modal-content">
                     <div class="modal-header">
@@ -62,13 +96,13 @@
             </td>
             <td>
               <!-- Button trigger modal -->
-              <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop<?= $list['id']; ?>">
+              <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop2<?= $list['id']; ?>">
                 Ações
                 <i class="bi bi-hand-index"></i>
               </button>
 
               <!-- Modal -->
-              <div class="modal fade" id="staticBackdrop<?= $list['id']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel2" aria-hidden="true">
+              <div class="modal fade" id="staticBackdrop2<?= $list['id']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel2" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                   <div class="modal-content">
                     <div class="modal-header">

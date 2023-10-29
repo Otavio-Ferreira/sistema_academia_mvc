@@ -1,4 +1,64 @@
 <main class="m-auto">
+  <form action="<?= BASE_URL; ?>Alunos/store/<?= $list_items['id']; ?>" method="POST" class="ms-5 me-5">
+    <div class="d-flex mt-3">
+      <i class="bi fs-1 pe-1 text-primary <?= $list_items['genero'] == 'Masculino'? 'bi-person-standing':'bi-person-standing-dress'?>"></i>
+      <p class="fs-1 text-primary"><?= $list_items['name'] ?></p>
+    </div>
+    <div class="row-form justify-content-center aling-content-center">
+      <div class="col m-1">
+        <div class="form-floating mt-3">
+          <input type="text" class="form-control" name="nome" id="nome">
+          <label for="nome">Nome</label>
+        </div>
+        <div class="form-floating mt-3">
+          <input type="text" class="form-control" name="email" id="email">
+          <label for="email">Email</label>
+        </div>
+        <div class="form-floating mt-3">
+          <input type="tel" class="form-control" name="telefone" id="telefone">
+          <label for="telefone">Telefone</label>
+        </div>
+        <div class="form-floating mt-3">
+          <input type="text" class="form-control" name="endereco" id="endereco">
+          <label for="endereco">Endereço</label>
+        </div>
+        <div class="form-floating mt-3">
+          <select class="form-select form-select mb-3" id="genero" name="genero">
+            <option value="Masculino">Masculino</option>
+            <option value="Feminino">Feminino</option>
+          </select>
+          <label for="genero">Gênero</label>
+        </div>
+      </div>
+      <div class="col m-1">
+        <div class="form-floating mt-3">
+          <input type="number" class="form-control" name="idade" id="idade">
+          <label for="idade">Idade</label>
+        </div>
+        <div class="form-floating mt-3">
+          <input type="text" class="form-control" name="mensalidade" id="mensalidade">
+          <label for="mensalidade">Mensalidade</label>
+        </div>
+        <div class="form-floating mt-3">
+          <input type="date" class="form-control" name="inscricao" id="inscricao">
+          <label for="inscricao">Inscrição</label>
+        </div>
+        <div class="form-floating mt-3">
+          <select class="form-select form-select mb-3" id="situacao" name="situacao">
+            <option value="Pago">Pago</option>
+            <option value="Pendente">Pendente</option>
+          </select>
+          <label for="situacao">Situação</label>
+        </div>
+        <div>
+          <input class="btn btn-primary fs-5 mt-2 w-100" type="submit" id="update" name="update" value="Adiciontar">
+        </div>
+      </div>
+    </div>
+  </form>
+</main>
+
+<!-- <main class="m-auto">
   <form action="<?= BASE_URL; ?>Alunos/store/<?= $list_items['id']; ?>" method="POST">
     <div class="container p-2 rounded-top conteinerForm">
       <div class="mb-3">
@@ -50,8 +110,8 @@
           <label class="form-check-label" for="feminino">Feminino</label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="genero" id="masculino" value="Masculino" required>
-          <label class="form-check-label" for="masculino">Masculino</label>
+          <input class="form-check-input" type="radio" name="genero" id="masculino" masculinovalue="Masculino" required>
+        Feminino  Feminino<label class="form-check-label" for="masculino">Masculino</label>
         </div>
       </div>
       <div class="d-flex justify-content-center">
@@ -59,4 +119,4 @@
       </div>
     </div>
   </form>
-</main>
+</main> -->

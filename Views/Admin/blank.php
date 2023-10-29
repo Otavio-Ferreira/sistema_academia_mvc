@@ -1,6 +1,6 @@
 <main>
-  <section class="ConteinerRelat">
-    <div class="ms-5 me-5 d-flex flex-wrap justify-content-around aling-content-around rounded">
+  <section class="p-3">
+    <div class="d-flex flex-wrap justify-content-around aling-content-around rounded">
       <div class="bg-white card-ind p-2 rounded d-flex justify-content-center border-5 border-end border-bottom border-info shadow">
         <div class="w-75">
           <p class="fs-5">
@@ -68,17 +68,17 @@
         </div>
       </div>
     </div>
-    <div class="corpo rounded">
+    <div class="bg-dark-subtle pt-1 rounded">
       <form method="post" action="<?= BASE_URL; ?>Home">
         <div class="box-search m-3">
           <input type="search" class="form-control w-50" placeholder="Pesquisar" id="pesquisar" name="searchValue">
-          <button onclick="searchData()" type="submit" name="submit" class="btn bg-white">
+          <button onclick="searchData()" type="submit" name="submit" class="btn ms-1 bg-white">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
               <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
             </svg>
           </button>
           <div class="dropdown">
-            <button class="btn bg-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <button class="btn ms-1 bg-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
               Filtrar
             </button>
             <ul class="dropdown-menu">
