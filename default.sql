@@ -221,6 +221,16 @@ CREATE TABLE `mensalidades` (
   `idAluno` int,
 );
 
+--
+-- Estrutura da tabela `mensalidade`
+--
+
+CREATE TABLE `notificacoes` (
+  `id` int auto_increment primary key not null,  
+  `tipo` int,      
+  `idAluno` int
+);
+
 
 
 --

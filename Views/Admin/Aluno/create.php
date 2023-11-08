@@ -7,11 +7,11 @@
     <div class="row-form justify-content-center aling-content-center">
       <div class="col m-1">
         <div class="form-floating mt-3">
-          <input type="text" class="form-control" name="nome" id="nome">
+          <input type="text" class="form-control" name="nome" id="nome" value="<?= $list_items['name']?>" readonly>
           <label for="nome">Nome</label>
         </div>
         <div class="form-floating mt-3">
-          <input type="text" class="form-control" name="email" id="email">
+          <input type="text" class="form-control" name="email" id="email" value="<?= $list_items['email']?>" readonly>
           <label for="email">Email</label>
         </div>
         <div class="form-floating mt-3">

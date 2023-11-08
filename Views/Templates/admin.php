@@ -181,24 +181,36 @@
           </a> -->
           <div class="d-flex flex-wrap justify-content-center aling-content-center aling-items-center">
             <!-- Button trigger modal -->
-            <a class="me-4 rounded-5 position-relative" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <a class="me-4 rounded-5 position-relative" data-bs-toggle="modal" data-bs-target="#modelNotf">
               <i class="bi bi-bell pe-none fs-2 text-secondary"></i>
               <span class="position-absolute bottom-0 start-100 translate-middle badge rounded-pill bg-danger">
-                99+
+                <?= $viewData['total_notificacoes']['totalNotificacoes']?>
                 <span class="visually-hidden">unread messages</span>
               </span>
             </a>
 
             <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal fade" id="modelNotf" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
                 <div class=" modal-content">
                   <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    ...
+                    <?php foreach($viewData['list_notificacoes'] as $list_notf):?>
+                      <div class="d-flex">
+                        <div class="alert alert-danger fw-bold w-75" role="alert">
+                          A fatura de <?= $list_notf['name']?> desse mes esta pendente
+                        </div>
+                        <div class="alert p-0 w-25 ms-2">
+                          <a href="#" class="btn btn-danger fs-5 w-100 h-100 d-flex flex-wrap justify-content-center align-content-center">
+                            Pagar
+                            <i class="bi bi-currency-dollar"></i>
+                          </a>
+                        </div>
+                      </div>
+                    <?php endforeach;?>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -216,7 +228,7 @@
                 <li>
                   <a class="dropdown-item fw-bold" href="#">
                     <i class="bi bi-person-circle pe-none me-2 text-secondary"></i>
-                    <?= $viewData['name']?>
+                    <?= $viewData['name'] ?>
                   </a>
                   <hr class="dropdown-divider">
                 </li>

@@ -7,6 +7,7 @@ class HomeController extends Controller{
 
 	public function __construct(){
 		$user = new Users();
+		$home = new Home();
 		if (!$user->isLogged()) {
 			header('Location: '.BASE_URL.'Login');
 			exit;
@@ -15,6 +16,8 @@ class HomeController extends Controller{
 			$user->setLoggedUser();
 			$this->data["name"] = $user->getName();
 			$this->data["id_group"] = $user->getIdGroup();
+			$this->data['list_notificacoes'] = $home->getNotificacoes();
+			$this->data['total_notificacoes'] = $home->getTotalNotificacoes();
 		}
 
 		if ($user->getIdGroup() == 4){
@@ -45,29 +48,26 @@ class HomeController extends Controller{
 			}
 
 			/* Gerar mensalidade e notificacoes*/ 
-			$dataSistema = date('d-m-Y');
-			$mesAnoSistema = date('m-Y');
+			$dataSistema = date('Y-m-d');
+			$mesSistema = date('m');
+			$anoSistema = date('Y');
 			// $dataVerificacao;
 			foreach ($this->data['list_items'] as $item) {
 				if($item['inscricao']){
 					$diaInscricao = date('d', strtotime($item['inscricao']));
-					$dataVerificacao = $diaInscricao.'-'.$mesAnoSistema;
+					$dataVerificacao = $anoSistema.'-'.$mesSistema.'-'.$diaInscricao;
 
 					// Se nao existir uma linha com a data de verificacao para cada id
-					if(){
+					if(!$home->verifyMensalidade($dataVerificacao, $item['id'])){
 						if($dataSistema >= $dataVerificacao){
-							echo 'Mensalidade vencida';
-						}
-						else{
-							echo 'Mensalidade em dias';
+							$alunos->addMensalidade(date($dataVerificacao), $item['mensalidade'], 0, $item['id']);
+							$home->setNotificacao(1, $item['id']);
 						}
 					}
 					// echo "Data Sitema: ".$dataS-istema."/Data verificar: ".$dataVerificacao.'<hr>';
 				}
 					
 			}
-			// echo $dataSistema;
-			exit;
 			
 			/* Fim */
 			
