@@ -216,7 +216,7 @@ class UsersController extends Controller
 
     public function addUserAluno(){
 
-        echo 'gay';
+        echo '<script>alert("ops")</script>';
         exit;
         $users = new Users();
         $users->setLoggeduser();

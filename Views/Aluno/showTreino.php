@@ -1,5 +1,5 @@
 <main>
-  <div class="container mt-5 mb-5 p-2 rounded">
+  <div class="container bg-primary mt-5 mb-5 p-2 rounded">
     <table class="table table-striped table-bordered bg-white table-hover m-auto">
       <thead>
         <tr>
@@ -19,7 +19,7 @@
       </tbody>
     </table>
   </div>
-  <div class="container mt-5 p-2 d-flex rounded">
+  <div class="container bg-primary mt-5 p-2 d-flex rounded">
     <div class="w-25 p-1">
       <table class="table table-striped table-bordered bg-white table-hover m-auto">
         <thead>

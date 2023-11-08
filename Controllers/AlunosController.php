@@ -150,6 +150,7 @@ class AlunosController extends Controller
             $senha = addslashes($_POST['senha']);
 
             $this->alunos->setAluno($id, $idade, $endereco, $situacao, $telefone, $mensalidade, $inscricao, $genero, $senha);
+            $this->alunos->addMensalidade($inscricao, $mensalidade, 1, $id);
             header('Location: ' . BASE_URL . 'Alunos');
             exit;
         }

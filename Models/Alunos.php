@@ -18,6 +18,15 @@ class Alunos extends Model
         $sql->execute();
     }
 
+    public function addMensalidade($data, $valor, $situacao, $idAluno){
+        $sql = $this->db->prepare("INSERT INTO mensalidades (data, valor, situacao, idAluno) VALUES (:data, :valor, :situacao, :idAluno)");
+        $sql->bindValue(':data', $data);
+        $sql->bindValue(':valor', $valor);
+        $sql->bindValue(':situacao', $situacao);
+        $sql->bindValue(':idAluno', $idAluno);
+        $sql->execute();
+    }
+
     public function deleteAluno($id){
         $sql = $this->db->prepare("DELETE FROM users WHERE id = :id");
         $sql->bindValue(':id', $id);

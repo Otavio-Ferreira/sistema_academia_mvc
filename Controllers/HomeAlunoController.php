@@ -26,12 +26,14 @@ class HomeAlunoController extends Controller
   public function index()
   {
     $id = $_SESSION['sistema_academia'];
+
     $this->data['nivel-1'] = 'PerfilAluno';
-    $this->data['CSS'] = customCSS('styleAluno');
+    $this->data['nivel-2'] = 'Perfil do Aluno';
 
     $alunos = new Alunos();
 
     $this->data['list_items'] = $alunos->getAluno($id);
+    $this->data['CSS'] = customCSS('styleAluno');
 
     $this->loadTemplateAdmin('Aluno/blank', $this->data);
   }
@@ -39,8 +41,9 @@ class HomeAlunoController extends Controller
   public function getAvaliacao($data)
   {
     $data = addslashes($data);
-    $id = $_SESSION['sistema_academia'];
-    $this->data['nivel-1'] = 'Avaliacao';
+    $id = $_SESSION['sistema_academia'];  
+    $this->data['nivel-1'] = 'Avaliacao'; 
+    $this->data['nivel-2'] = 'Avaliação Física'; 
     $this->data['nivel-av'] = $data;
 
     $alunos = new Aluno();
@@ -55,8 +58,11 @@ class HomeAlunoController extends Controller
   public function getInfoTreino($idTreino)
   {
     $idTreino = addslashes($idTreino);
+
     $id = $_SESSION['sistema_academia'];
+
     $this->data['nivel-1'] = 'Treino';
+    $this->data['nivel-2'] = 'Treino';
     $this->data['nivel-t'] = $idTreino;
 
 

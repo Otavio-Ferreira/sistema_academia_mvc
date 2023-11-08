@@ -1,39 +1,21 @@
-.card-info{
-  max-width: 800px;
+.card-av{
+  background-image: linear-gradient(135deg, #f8f9fa 70%, #ced4da 30%);
+  background-repeat: no-repeat;
+  width: 315px;
+  margin: 5px;
 }
 
-.div-cont{
-  max-width: 800px;
-  justify-content: space-between;
+@media(max-width: 1295px){
+  .card-av{
+    width: 45%;
+    margin: 5px;
+  }  
 }
 
-.conteiner-form{
-  width: 400px;
-}
-
-label{
-  font-weight: bold;
-}
-
-.inputCaixa1{
-  height: 60px;
-}
-
-@media(max-width: 780px){
-  .card-info{
-    width: 100%;
-  }
-  
-  .div-cont{
+@media(max-width: 575px){
+  .card-av{
     min-width: 100%;
-    justify-content: center;
-  }
-
-  .conteiner-form{
-    width: 100%;
-  }
-
-  .div-table{
-    width: 100%;
-  }
+    margin: 5px;
+  }  
 }
+

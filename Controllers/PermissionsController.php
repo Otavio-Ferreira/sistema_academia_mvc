@@ -25,6 +25,7 @@ class PermissionsController extends Controller
 	public function index()
 	{
 		$this->data['nivel-1'] = "Permissões";
+		$this->data['nivel-2'] = "Permissões";
 
 
 		$user = new Users();
@@ -85,6 +86,7 @@ class PermissionsController extends Controller
 	public function addParams()
 	{
 		$this->data['nivel-1'] = "Paramêtros";
+		$this->data['nivel-2'] = "Paramêtros";
 
 
 		$user = new Users();

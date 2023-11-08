@@ -43,6 +43,33 @@ class HomeController extends Controller{
 				$this->data['list_items'] = $alunos->getAlunos();
 			
 			}
+
+			/* Gerar mensalidade e notificacoes*/ 
+			$dataSistema = date('d-m-Y');
+			$mesAnoSistema = date('m-Y');
+			// $dataVerificacao;
+			foreach ($this->data['list_items'] as $item) {
+				if($item['inscricao']){
+					$diaInscricao = date('d', strtotime($item['inscricao']));
+					$dataVerificacao = $diaInscricao.'-'.$mesAnoSistema;
+
+					// Se nao existir uma linha com a data de verificacao para cada id
+					if(){
+						if($dataSistema >= $dataVerificacao){
+							echo 'Mensalidade vencida';
+						}
+						else{
+							echo 'Mensalidade em dias';
+						}
+					}
+					// echo "Data Sitema: ".$dataS-istema."/Data verificar: ".$dataVerificacao.'<hr>';
+				}
+					
+			}
+			// echo $dataSistema;
+			exit;
+			
+			/* Fim */
 			
 			$this->data['total_registros'] = $home->getTotalRegistros();
 			$this->data['total_pendencias'] = $home->getTotalPendencias();

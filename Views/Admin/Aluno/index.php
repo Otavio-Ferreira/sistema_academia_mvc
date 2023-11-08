@@ -7,16 +7,16 @@
           <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
         </svg>
       </button>
-      <a data-bs-toggle="modal" data-bs-target="#addUser" class="btn btn-primary fw-bold ms-1">Novo Aluno</a>
+      <a data-bs-toggle="modal" data-bs-target="#addUserAluno" class="btn btn-primary fw-bold ms-1">Novo Aluno</a>
       <!-- MODAL ADICIONAR USUARIO -->
-      <div class="modal fade" id="addUser" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal fade" id="addUserAluno" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header">
               Adicionar Usuário
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" action="<?= BASE_URL;?>Users/AddUserAluno">
+            <form method="post" action="<?= BASE_URL; ?>Users/addUserAluno">
               <div class="modal-body">
                 <div class="row">
                   <div class="col-md-12 mb-3">
@@ -34,7 +34,6 @@
                 </div>
               </div>
               <div class="modal-footer d-flex justify-content-end">
-                <button type="button" class="btn btn-secondary w-25" data-bs-dismiss="modal">Cancelar</button>
                 <button type="submit" class="btn btn-info w-25">Adicionar</button>
               </div>
             </form>

@@ -23,7 +23,7 @@
 
 <body class="bg-body-secondary">
   <div class="d-flex min-vh-100">
-    <div class="flex-column flex-shrink-0 p-3 bg-body-tertiary nav-desk shadow" style="width: 280px;">
+    <div class="flex-column flex-shrink-0 p-3 bg-body-tertiary nav-desk shadow div-nav" style="width: 280px;">
       <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
         <img class="w-75 m-auto" src="<?= BASE_URL; ?>Assets/img/logo-png.png" alt="">
       </a>
@@ -92,7 +92,7 @@
       </ul>
     </div>
     <div class="w-100">
-      <nav class="navbar bg-body-tertiary">
+      <nav class="navbar bg-body-tertiary ">
         <div class="container-fluid">
           <button class="navbar-toggler nav-mobile" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -172,28 +172,79 @@
             </div>
           </div>
           <a class="navbar-brand nivel" href="#"><?= $viewData['nivel-2'] ?></a>
-          <div class="dropdown">
-            <button class="btn fw-bold dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Olá, <?= $viewData['name'] ?>
-            </button>
-            <ul class="dropdown-menu">
-              <li>
-                <a class="dropdown-item fw-bold" href="<?= BASE_URL . 'Login/logout'; ?>">
-                  <i class="bi bi-box-arrow-right pe-none me-2"></i>
-                  Log out
-                </a>
-              </li>
-            </ul>
+          <!-- <a class="position-relative">
+            <i class="bi bi-bell pe-none me-2 fs-5 text-dark"></i>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              99+
+              <span class="visually-hidden">unread messages</span>
+            </span>
+          </a> -->
+          <div class="d-flex flex-wrap justify-content-center aling-content-center aling-items-center">
+            <!-- Button trigger modal -->
+            <a class="me-4 rounded-5 position-relative" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              <i class="bi bi-bell pe-none fs-2 text-secondary"></i>
+              <span class="position-absolute bottom-0 start-100 translate-middle badge rounded-pill bg-danger">
+                99+
+                <span class="visually-hidden">unread messages</span>
+              </span>
+            </a>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class=" modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    ...
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="dropdown-center">
+              <a class="fw-bold dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-person-circle fs-2 text-secondary"></i>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-lg-end">
+                <li>
+                  <a class="dropdown-item fw-bold" href="#">
+                    <i class="bi bi-person-circle pe-none me-2 text-secondary"></i>
+                    <?= $viewData['name']?>
+                  </a>
+                  <hr class="dropdown-divider">
+                </li>
+                <li>
+                  <a class="dropdown-item fw-bold" href="<?= BASE_URL . 'Perfil'; ?>">
+                    <i class="bi bi-person pe-none me-2"></i>
+                    Profile
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item fw-bold" href="<?= BASE_URL . 'Login/logout'; ?>">
+                    <i class="bi bi-box-arrow-right pe-none me-2"></i>
+                    Log out
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </nav>
-      <main class="w-100">
+      <main class="w-100 vh-100 div-main">
+
         <?php $this->loadViewInTemplate($viewName, $viewData); ?>
+        <footer class="w-100 text-center">
+          <h2 class="">Othek System Academy</h2>
+          <p class="">Desenvolvido por Otavio Ferreira</p>
+        </footer>
       </main>
-      <footer class="footer m-auto">
-        <h2 class="text-center">Othek System Academy</h2>
-        <p class="text-center">Desenvolvido por Otavio Ferreira</p>
-      </footer>
     </div>
   </div>
   <script src="<?= BASE_URL; ?>Assets/js/jquery-3.5.1.js"></script>

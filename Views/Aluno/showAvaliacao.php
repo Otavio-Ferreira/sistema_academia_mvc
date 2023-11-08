@@ -1,5 +1,5 @@
 <main>
-  <div class="container d-flex mt-5 mb-5 p-2 rounded" style="background-color:#E3813D">
+  <div class="container bg-primary d-flex mt-5 mb-5 p-2 rounded" style="background-color:#E3813D">
     <div class="container table-responsive p-2 rounded-top div-table w-25">
       <table class="table table-striped table-bordered bg-white table-hover tabela">
         <thead style="background: #E3813D; color: white;">

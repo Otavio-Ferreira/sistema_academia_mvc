@@ -209,6 +209,18 @@ CREATE TABLE `treinos` (
   `idTreino` int
 );
 
+--
+-- Estrutura da tabela `mensalidade`
+--
+
+CREATE TABLE `mensalidades` (
+  `id` int auto_increment primary key not null,  
+  `data` date,    
+  `valor` double,    
+  `situacao` int,    
+  `idAluno` int,
+);
+
 
 
 --
